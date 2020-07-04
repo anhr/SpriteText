@@ -195,13 +195,14 @@ var SpriteText = function ( text, position, options ) {
 /**
  * Adds SpriteText settings folder into gui.
  * @param {GUI} gui see https://github.com/anhr/dat.gui for details
- * @param {THREE.Group} group group of texts and of all child groups of texts for which these settings will have an effect
+ * @param {THREE.Group} group group of SpriteText and of all child groups of SpriteText for which these settings will have an effect
  * @param {object} [guiParams] Followed parameters is allowed. Default is no parameters
  * @param {Function} [guiParams.getLanguageCode] Your custom getLanguageCode() function.
-* returns the "primary language" subtag of the language version of the browser.
-* Examples: "en" - English language, "ru" Russian.
-* See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.
-* Default returns the 'en' is English language.
+ * returns the "primary language" subtag of the language version of the browser.
+ * Examples: "en" - English language, "ru" Russian.
+ * See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.
+ * Default returns the 'en' is English language.
+ * You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';
  * @param {object} [guiParams.lang] Object with localized language values
  * @param {GUI} [guiParams.parentFolder] parent folder, returned by gui.addFolder(name) https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder
  * @param {string} [guiParams.options] See SpriteText options.

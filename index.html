@@ -133,7 +133,12 @@
 			scene.add( new SpriteText( 'Default SpriteText' ) );
 
 			var group = new THREE.Group();
-			group.userData.optionsSpriteText = { fontColor: 'rgba(255, 255, 225, 0.5)' }
+			//options for all SpriteText from this group and all child groups
+			group.userData.optionsSpriteText = {
+
+				fontColor: 'rgba(255, 255, 225, 0.5)'//white semi opacity color
+
+			}
 			scene.add( group );
 
 			var fontFaces = ['Arial', 'Verdana', 'Times'];

@@ -25,7 +25,7 @@ Creates a new sprite based text component.
 | --- | --- | --- | --- |
 | text | <code>string or number</code> |  | The text to be displayed on the sprite. You can include a multiline text separated by "\r\n".|
 | position | <code>THREE.Vector3</code> | new THREE.Vector3( 0, 0, 0 ) | Position of the text.|
-| [options] | <code>object</code> |  | followed options is available: |
+| [options] | <code>object</code> | undefinef | followed options is available: |
 | [options.textHeight] | <code>number</code> | 0.1 | The height of the text.|
 | [options.sizeAttenuation] | <code>boolean</code> | false | Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only). See [sizeAttenuation](https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation) for details.|
 | [options.rotation] | <code>number</code> | 0 | The rotation of the sprite in radians. See [rotation](https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.rotation) for details.|
@@ -62,13 +62,11 @@ Adds SpriteText settings folder into [gui](https://github.com/anhr/dat.gui).
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| text | <code>string or number</code> |  | The text to be displayed on the sprite. You can include a multiline text separated by "\r\n".|
-| position | <code>THREE.Vector3</code> | new THREE.Vector3( 0, 0, 0 ) | Position of the text.|
+| gui | <code>GUI</code> |  | see [dat.GUI](https://github.com/anhr/dat.gui) for details.|
+| group | <code>THREE.Group</code> |  | group of SpriteText and of all child groups of SpriteText for which these settings will have an effect.|
+| guiParams | <code>THREE.Group</code> | undefined | Followed parameters is allowed.|
+| guiParams.getLanguageCode | <code>Function</code> | undefined | <p>Your custom getLanguageCode() function.</p><p>returns the "primary language" subtag of the language version of the browser.</p><p>Examples: "en" - English language, "ru" Russian.</p><p>See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.</p><p>Default returns the 'en' is English language.</p><p>You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</p>|
 
- * @param {GUI} gui see https://github.com/anhr/dat.gui for details
- * @param {THREE.Group} group group of texts and of all child groups of texts for which these settings will have an effect
- * @param {object} [guiParams] Followed parameters is allowed. Default is no parameters
- * @param {Function} [guiParams.getLanguageCode] Your custom getLanguageCode() function.
 * returns the "primary language" subtag of the language version of the browser.
 * Examples: "en" - English language, "ru" Russian.
 * See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.
