@@ -39,6 +39,7 @@ function _getCenter( center ) {
  * @param {string} [options.fontProperties] Other font properties. The font property uses the same syntax as the CSS font property.
  * 	Default is empty string. Example "900", "oblique lighter".
  * @param {THREE.Vector2} [options.center] The text's anchor point.
+ * See https://threejs.org/docs/index.html#api/en/objects/Sprite.center
  * 	A value of (0.5, 0.5) corresponds to the midpoint of the text.
  * 	A value of (0, 0) corresponds to the left lower corner of the text.
  * 	A value of (0, 1) corresponds to the left upper corner of the text.
