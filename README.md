@@ -5,8 +5,6 @@ A [sprite](https://threejs.org/docs/index.html#api/en/objects/Sprite) based text
 I use SpriteText in my [three.js](https://threejs.org/) projects for displaying of the text in the canvas.
 [Example](https://raw.githack.com/anhr/SpriteText/master/).
 
-Thanks to [three-spritetext](https://github.com/vasturiano/three-spritetext).
-
 Uses in my projects:
  * [AxesHelper](https://github.com/anhr/AxesHelper)
  * [myThreejs](https://github.com/anhr/myThreejs)
@@ -36,7 +34,6 @@ Creates a new sprite based text component.
 | [options.fontColor] | <code>string</code> | 'rgba(255, 255, 255, 1)' white color | RGBA object or RGB object or HEX value. Examples 'rgba(0, 0, 255, 0.5)', '#00FF00'.|
 | [options.bold] | <code>boolean</code> | false | CSS font-weight. Equivalent of 700.|
 | [options.italic] | <code>boolean</code> | false | CSS font-style.|
-| [options.fontProperties] | <code>string</code> |  | Other font properties. The font property uses the same syntax as the CSS font property.|
 | [options.fontProperties] | <code>string</code> | "" | Other font properties. The font property uses the same syntax as the CSS font property. Examples: "900", "oblique lighter".|
 | [options.center] | <code>THREE.Vector2</code> | new THREE.Vector2(0, 1) | <p>The text's anchor point. See [center](https://threejs.org/docs/index.html#api/en/objects/Sprite.center) for details.</p><p>A value of (0.5, 0.5) corresponds to the midpoint of the text.</p><p>A value of (0, 0) corresponds to the left lower corner of the text.</p><p>A value of (0, 1) corresponds to the left upper corner of the text.</p>|
 | [options.rect] | <code>object</code> |  | rectangle around the text.|
@@ -46,134 +43,69 @@ Creates a new sprite based text component.
 | [options.rect.borderThickness] | <code>number</code> | 0 invisible border | border thickness.|
 | [options.rect.borderRadius] | <code>number</code> | 0 no radius | border corners radius.|
 
+You can set options for all SpriteText from the  group and all child groups. Example:
+```
+var group = new THREE.Group();
+//options for all SpriteText from this group and all child groups
+group.userData.optionsSpriteText = {
+
+	fontColor: 'rgba(255, 255, 225, 0.5)'//white semi opacity color
+
+}
+scene.add( group );
+```
+
+
+### SpriteTextGui( gui, group, guiParams )
+
+Adds SpriteText settings folder into [gui](https://github.com/anhr/dat.gui).
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| text | <code>string or number</code> |  | The text to be displayed on the sprite. You can include a multiline text separated by "\r\n".|
+| position | <code>THREE.Vector3</code> | new THREE.Vector3( 0, 0, 0 ) | Position of the text.|
+
+ * @param {GUI} gui see https://github.com/anhr/dat.gui for details
+ * @param {THREE.Group} group group of texts and of all child groups of texts for which these settings will have an effect
+ * @param {object} [guiParams] Followed parameters is allowed. Default is no parameters
+ * @param {Function} [guiParams.getLanguageCode] Your custom getLanguageCode() function.
+* returns the "primary language" subtag of the language version of the browser.
+* Examples: "en" - English language, "ru" Russian.
+* See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.
+* Default returns the 'en' is English language.
+ * @param {object} [guiParams.lang] Object with localized language values
+ * @param {GUI} [guiParams.parentFolder] parent folder, returned by gui.addFolder(name) https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder
+ * @param {string} [guiParams.options] See SpriteText options.
+ * @param {string} [guiParams.spriteFolder] sprite folder name. Default is lang.spriteText
+ * @returns {GUI} sprite folder
 
 **Example.**
 ```
 <script>
 
-	myThreejs.create( function ( group, options ) {
+	import * as THREE from '../../three.js/dev/build/three.module.js';
+	//import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
-		var playerOptions = {
+	import { dat } from '../../commonNodeJS/master/dat.module.js';
+	import { SpriteText, SpriteTextGui } from './SpriteText.js';
 
-			marks: 110,//Number of scenes of 3D objects animation.
-			name: 'Time (sec.)',
-			repeat: true,
-			zoomMultiplier: 1.1,
-			offset: 0.1,
-			min: -10,
-			max: 10,
+	// create scene etc
+	...
 
-		};
+	scene.add( new SpriteText( 'Default SpriteText' ) );
+	var gui = new dat.GUI();
 
-		//Points
-		var a = options.a, b = options.b;
-		var tMin = playerOptions.min === undefined ? 0 : playerOptions.min;
+	//Settings for all SpriteText added to scene and child groups
+	SpriteTextGui( gui, scene, {
 
-		var arrayFuncs, sizes;
+		getLanguageCode: getLanguageCode,
+		settings: { zoomMultiplier: 1.5, },
+		options: {
 
-		//See https://github.com/anhr/myThreejs#arrayfuncs-item for details
-		arrayFuncs = [
-			{
-
-				vector: new THREE.Vector4(
-					new Function( 't', 'a', 'b', 'return Math.sin(t*a*2*Math.PI)*0.5+b' ),//x
-					new Function( 't', 'a', 'b', 'return Math.cos(t*a*2*Math.PI)*0.5-b' ),//y
-					new Function( 't', 'a', 'b', 'return Math.cos(t*a*2*Math.PI)*0.5-0.1' ),//z
-					new Function( 't', 'return 1-2*t' )//w
-				),
-				name: 'Animated 3D point',
-				trace: true,//Displays the trace of the point movement.
-
-			},
-			new THREE.Vector4( 0, 0, 0, new Function( 't', 'return 1-2*t' ) ),//color is f(t)
-		]
-		var points = new THREE.Points( new THREE.BufferGeometry().setFromPoints( options.getPoints( tMin, arrayFuncs, a, b ), 4 ),
-			new THREE.PointsMaterial( { size: options.point.size, vertexColors: THREE.VertexColors } ) );
-		points.name = 'Points';
-		points.geometry.addAttribute( 'color', new THREE.Float32BufferAttribute( options.getColors( tMin, arrayFuncs, options.scales.w ), 3 ) );
-		points.userData.arrayFuncs = arrayFuncs;//3D object animation.
-		points.userData.raycaster = {
-
-			onIntersection: function ( raycaster, intersection, scene, mouse ) {
-
-				options.addSpriteTextIntersection( raycaster, intersection, scene, mouse );
-
-			},
-			onIntersectionOut: function ( scene ) {
-
-				options.removeSpriteTextIntersection( scene );
-
-			},
+			textHeight: 0.1,
+			sizeAttenuation: false,
 
 		}
-		points.userData.selectPlayScene = function ( t ) {
-
-			var angle = t * Math.PI * 2 * 1.2;
-			points.rotation.set( angle, 0, 0 );
-			myThreejs.limitAngles( points.rotation );
-
-		}
-		points.position.copy( new THREE.Vector3( 0.1, 0.2, 0.3 ) );
-		points.scale.copy( new THREE.Vector3( 1.1, 1.2, 1.3 ) );
-		group.add( points );
-
-	},
-	{
-
-		elContainer: "canvasContainer1",//document.getElementById("canvasContainer1"),//id of the HTMLElement for canvas and HTMLElement with id="iframe-goes-in-here" for gui.
-		orbitControls: { gui: true, },//OrbitControls,//use orbit controls allow the camera to orbit around a target. https://threejs.org/docs/index.html#examples/en/controls/OrbitControls
-		axesHelper: true,
-		axesHelperGui: true,
-		stereoEffect: true,
-		menuPlay: true,
-		dat: true,//use dat-gui JavaScript Controller Library. https://github.com/dataarts/dat.gui
-		player: playerOptions,//3D objects animation.
-		a: 1.1,
-		b: 0.3,
-		point: { size: 0.1 },
-		canvas: {
-
-			width: window.innerWidth / 2,
-			height: window.innerHeight / 2,
-
-		},
-		scales: {
-
-			display: true,
-			precision: 4,
-			t: playerOptions,
-			x: {
-
-				zoomMultiplier: 2,
-				offset: 1,
-				name: 'latitude(km.)',
-				min: -10,
-				max: 10,
-				marks: 11,
-
-			},
-			y: {
-
-				name: 'Temperature(degrees Celsius)',
-				min: -4,
-				max: 2,
-
-			},
-			z: {
-
-				name: 'Radius(m.)',
-				min: -110,
-				max: -100,
-				marks: 11,
-
-			},
-			w: {
-				name: 'energy',
-				min: -1,
-				max: 1,
-			},
-
-		},
 
 	} );
 
@@ -349,10 +281,8 @@ LG Smart tv
 
 
 ## Thanks
-The following libraries / open-source projects were used in the development of DropdownMenu:
- * [Rollup](https://rollupjs.org)
- * [Node.js](http://nodejs.org/)
- * [three.js](https://threejs.org/)
+
+[three-spritetext](https://github.com/vasturiano/three-spritetext).
 
  ## Have a job for me?
 Please read [About Me](https://anhr.github.io/AboutMe/).

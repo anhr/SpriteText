@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>sprite text. three.js webgl</title>
@@ -130,15 +130,12 @@
 //			group.add( mesh );
 			scene.add( mesh );
 
-			//spriteText
-
 			scene.add( new SpriteText( 'Default SpriteText' ) );
-/*
-			//anchor
-			var anchorVertices = [new THREE.Vector3( 10, 2, 2 )];
-			group.add( new THREE.Points( new THREE.BufferGeometry().setFromPoints( anchorVertices ),
-				new THREE.PointsMaterial( { color: 0xff0000, map: texture, size: 1, alphaTest: 0.5 } ) ) );
-*/
+
+			var group = new THREE.Group();
+			group.userData.optionsSpriteText = { fontColor: 'rgba(255, 255, 225, 0.5)' }
+			scene.add( group );
+
 			var fontFaces = ['Arial', 'Verdana', 'Times'];
 
 			//dat-gui JavaScript Controller Library
@@ -151,7 +148,7 @@
 
 			arraySpriteText.forEach( function ( item ) {
 
-				scene.add( item );
+				group.add( item );
 
 			} );
 
@@ -176,14 +173,14 @@
 				options: {
 
 					textHeight: 0.1,//0.05,
-					sizeAttenuation: false,//true,//Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.
+					//sizeAttenuation: false,//true,//Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.
 
 				}
 
 			} );
 
 			var groupLevel2 = new THREE.Group();
-			scene.add( groupLevel2 );
+			group.add( groupLevel2 );
 
 			groupLevel2.add( new SpriteText( 'groupLevel2\r\nSpriteText 1', new THREE.Vector3( -10, -15, 2 ) ) );
 			groupLevel2.add( new SpriteText( 'groupLevel2\r\nSpriteText 2', new THREE.Vector3(  10, -15, 2 ) ) );
