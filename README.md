@@ -36,10 +36,9 @@ Creates a new sprite based text component.
 | [options.italic] | <code>boolean</code> | false | CSS font-style.|
 | [options.fontProperties] | <code>string</code> |  | Other font properties. The font property uses the same syntax as the CSS font property.|
 | [options.fontProperties] | <code>string</code> | "" | Other font properties. The font property uses the same syntax as the CSS font property. Examples: "900", "oblique lighter".|
-| [options.center] | <code>THREE.Vector2</code> | new THREE.Vector2(0, 1) | The text's anchor point.
- 	A value of (0.5, 0.5) corresponds to the midpoint of the text.
- 	A value of (0, 0) corresponds to the left lower corner of the text.
- 	A value of (0, 1) corresponds to the left upper corner of the text.
+| [options.center] | <code>THREE.Vector2</code> | new THREE.Vector2(0, 1) | The text's anchor point.\r\nA value of (0.5, 0.5) corresponds to the midpoint of the text.
+ A value of (0, 0) corresponds to the left lower corner of the text.
+ A value of (0, 1) corresponds to the left upper corner of the text.
 |
 
  * @param {} [options.center] The text's anchor point.
