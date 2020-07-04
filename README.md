@@ -2,7 +2,7 @@
 
 A [sprite](https://threejs.org/docs/index.html#api/en/objects/Sprite) based text component. SpriteText is a text that always faces towards the camera.
 
-I use SpriteText in my projects for displaying of the text in the canvas.
+I use SpriteText in my [three.js](https://threejs.org/) projects for displaying of the text in the canvas.
 [Example](https://raw.githack.com/anhr/SpriteText/master/).
 
 Uses in my projects:
@@ -12,7 +12,7 @@ Uses in my projects:
 ## To use
 The easiest way to use SpriteText in your code is import SpriteText and SpriteTextGui from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
 ```
-import { SpriteText, SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+import { SpriteText, SpriteTextGui } from './SpriteText.js';
 ```
 
 Now you can use SpriteText and SpriteTextGui in your javascript code.
@@ -27,6 +27,33 @@ Creates a new sprite based text component.
 | position | <code>THREE.Vector3</code> | new THREE.Vector3( 0, 0, 0 ) | Position of the text.|
 | [options] | <code>object</code> |  | followed options is available: |
 | [options.textHeight] | <code>number</code> | 0.1 | The height of the text.|
+| [options.sizeAttenuation] | <code>boolean</code> | false | Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only). See [sizeAttenuation](https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation) for details.|
+| [options.rotation] | <code>number</code> | 0 | The rotation of the sprite in radians. See [rotation](https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.rotation) for details.|
+| [options.fontFace] | <code>string</code> | 'Arial' | CSS font-family - specifies the font of the text|
+| [options.fontFaces] | <code>string[]</code> |  | array of fontFaces. Example ['Arial', 'Verdana', 'Times'].|
+| [options.fontColor] | <code>string</code> | 'rgba(255, 255, 255, 1)' white color | RGBA object or RGB object or HEX value. Examples 'rgba(0, 0, 255, 0.5)', '#00FF00'.|
+| [options.bold] | <code>boolean</code> | false | CSS font-weight. Equivalent of 700.|
+| [options.italic] | <code>boolean</code> | false | CSS font-style.|
+| [options.fontProperties] | <code>string</code> |  | Other font properties. The font property uses the same syntax as the CSS font property.|
+| [options.fontProperties] | <code>string</code> | "" | Other font properties. The font property uses the same syntax as the CSS font property. Examples: "900", "oblique lighter".|
+| [options.center] | <code>THREE.Vector2</code> | new THREE.Vector2(0, 1) | The text's anchor point.
+ 	A value of (0.5, 0.5) corresponds to the midpoint of the text.
+ 	A value of (0, 0) corresponds to the left lower corner of the text.
+ 	A value of (0, 1) corresponds to the left upper corner of the text.
+|
+
+ * @param {} [options.center] The text's anchor point.
+ * 	Default is .
+ * @param {object} [options.rect] rectangle around the text.
+ * @param {boolean} [options.rect.displayRect] true - the rectangle around the text is visible. Default is false.
+ * @param {string} [options.rect.backgroundColor] background color. RGBA object or RGB object or HEX value
+ * 	Default is 'rgba(0, 0, 0, 0)' - black transparent.
+ * 	Examples 'rgba(0, 0, 255, 0.5)', '#00FF00'.
+ * @param {string} [options.rect.borderColor] border color. RGBA object or RGB object or HEX value. Default is 'rgba(0, 255, 0, 1)' - green.
+ * @param {number} [options.rect.borderThickness] border thickness. Default is 0 - no border.
+ * @param {number} [options.rect.borderRadius] border radius. Default is 0 - no radius.
+ * @see Thanks to / https://github.com/vasturiano/three-spritetext
+
 
 | [options.orbitControls] | <code>object</code> |  | use [orbitControls](https://threejs.org/docs/index.html#examples/en/controls/OrbitControls) allow the camera to orbit around a target.|
 | [options.orbitControls.gui] | <code>boolean</code> | false | true - displays the orbit controls gui. |

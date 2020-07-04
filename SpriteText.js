@@ -4,6 +4,8 @@
 */
 
 import * as THREE from '../../three.js/dev/build/three.module.js';
+//import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
+
 import { dat } from '../../commonNodeJS/master/dat.module.js';
 import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';
 import Cookie from '../../cookieNodeJS/master/cookie.js';
