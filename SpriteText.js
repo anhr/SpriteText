@@ -49,9 +49,9 @@ function _getCenter( center ) {
  * @param {string} [options.rect.backgroundColor] background color. RGBA object or RGB object or HEX value
  * 	Default is 'rgba(0, 0, 0, 0)' - black transparent.
  * 	Examples 'rgba(0, 0, 255, 0.5)', '#00FF00'.
- * @param {string} [options.rect.borderColor] border color. RGBA object or RGB object or HEX value. Default is 'rgba(0, 255, 0, 1)' - green.
- * @param {number} [options.rect.borderThickness] border thickness. Default is 0 - no border.
- * @param {number} [options.rect.borderRadius] border radius. Default is 0 - no radius.
+ * @param {string} [options.rect.borderColor] border color. RGBA object or RGB object or HEX value. Default is same as options.fontColor 'rgba(255, 255, 255, 1)' - white.
+ * @param {number} [options.rect.borderThickness] border thickness. Default is 0 - invisible border.
+ * @param {number} [options.rect.borderRadius] border corners radius. Default is 0 - no radius.
  * @see Thanks to / https://github.com/vasturiano/three-spritetext
  */
 var SpriteText = function ( text, position, options ) {

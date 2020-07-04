@@ -5,11 +5,13 @@ A [sprite](https://threejs.org/docs/index.html#api/en/objects/Sprite) based text
 I use SpriteText in my [three.js](https://threejs.org/) projects for displaying of the text in the canvas.
 [Example](https://raw.githack.com/anhr/SpriteText/master/).
 
+Thanks to [three-spritetext](https://github.com/vasturiano/three-spritetext).
+
 Uses in my projects:
  * [AxesHelper](https://github.com/anhr/AxesHelper)
  * [myThreejs](https://github.com/anhr/myThreejs)
 
-## To use
+## Quick start
 The easiest way to use SpriteText in your code is import SpriteText and SpriteTextGui from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
 ```
 import { SpriteText, SpriteTextGui } from './SpriteText.js';
@@ -37,117 +39,13 @@ Creates a new sprite based text component.
 | [options.fontProperties] | <code>string</code> |  | Other font properties. The font property uses the same syntax as the CSS font property.|
 | [options.fontProperties] | <code>string</code> | "" | Other font properties. The font property uses the same syntax as the CSS font property. Examples: "900", "oblique lighter".|
 | [options.center] | <code>THREE.Vector2</code> | new THREE.Vector2(0, 1) | <p>The text's anchor point. See [center](https://threejs.org/docs/index.html#api/en/objects/Sprite.center) for details.</p><p>A value of (0.5, 0.5) corresponds to the midpoint of the text.</p><p>A value of (0, 0) corresponds to the left lower corner of the text.</p><p>A value of (0, 1) corresponds to the left upper corner of the text.</p>|
+| [options.rect] | <code>object</code> |  | rectangle around the text.|
+| [options.rect.displayRect] | <code>boolean</code> | false | true - the rectangle around the text is visible.|
+| [options.rect.backgroundColor] | <code>string</code> | 'rgba(0, 0, 0, 0)' - black transparent. | <p>background color. RGBA object or RGB object or HEX value.</p><p>Examples: 'rgba(0, 0, 255, 0.5)', '#00FF00'.</p><p>|
+| [options.rect.borderColor] | <code>string</code> | Same as options.fontColor 'rgba(255, 255, 255, 1)' - white. | border color. RGBA object or RGB object or HEX value.|
+| [options.rect.borderThickness] | <code>number</code> | 0 invisible border | border thickness.|
+| [options.rect.borderRadius] | <code>number</code> | 0 no radius | border corners radius.|
 
- * @param {object} [options.rect] rectangle around the text.
- * @param {boolean} [options.rect.displayRect] true - the rectangle around the text is visible. Default is false.
- * @param {string} [options.rect.backgroundColor] background color. RGBA object or RGB object or HEX value
- * 	Default is 'rgba(0, 0, 0, 0)' - black transparent.
- * 	Examples 'rgba(0, 0, 255, 0.5)', '#00FF00'.
- * @param {string} [options.rect.borderColor] border color. RGBA object or RGB object or HEX value. Default is 'rgba(0, 255, 0, 1)' - green.
- * @param {number} [options.rect.borderThickness] border thickness. Default is 0 - no border.
- * @param {number} [options.rect.borderRadius] border radius. Default is 0 - no radius.
- * @see Thanks to / https://github.com/vasturiano/three-spritetext
-
-
-| [options.orbitControls] | <code>object</code> |  | use [orbitControls](https://threejs.org/docs/index.html#examples/en/controls/OrbitControls) allow the camera to orbit around a target.|
-| [options.orbitControls.gui] | <code>boolean</code> | false | true - displays the orbit controls gui. |
-| [options.axesHelper] | <code>boolean</code> | false | true - displays the AxesHelper. |
-| [options.axesHelperGui] | <code>boolean</code> | false | true - displays the AxesHelper gui. |
-| [options.stereoEffect] | <code>boolean</code> | false | true - use [stereoEffect](https://github.com/anhr/three.js/blob/dev/examples/jsm/effects/StereoEffect.js). |
-| [options.dat] | <code>boolean</code> | false | true - use [dat.gui](https://github.com/dataarts/dat.gui) JavaScript Controller Library. |
-| [options.menuPlay] | <code>boolean</code> | false | true - use my dropdown menu for canvas in my version of [dat.gui](https://github.com/anhr/dat.gui) for playing of 3D objects in my projects. |
-| [options.player] | <code>object</code> |  | 3D objects animation. |
-| [options.player.min] | <code>number</code> | 0 | Animation start time. |
-| [options.player.max] | <code>number</code> | 1 | Animation end time. |
-| [options.canvas] | <code>object</code> |  | canvas properties. |
-| [options.canvas.width] | <code>number</code> |  | width of the canvas. |
-| [options.canvas.height] | <code>number</code> |  | height of the canvas. |
-| [options.a] | <code>number</code> | 1 | Can be use as 'a' parameter of the Function. See [arrayFuncs](#arrayfuncs-item) for details. |
-| [options.b] | <code>number</code> | 0 | Can be use as 'b' parameter of the Function. See [arrayFuncs](#arrayfuncs-item) for details. |
-| [options.point] | <code>object</code> |  | point settings. Applies to points with [ShaderMaterial](https://threejs.org/docs/index.html#api/en/materials/ShaderMaterial). The size of the point seems constant and does not depend on the distance to the camera. |
-| [options.point.size] | <code>number</code> | 0.02 | The apparent angular size of a point in radians. |
-| [options.scales] | <code>object</code> |  | axes scales. |
-| [options.scales.display] | <code>boolean</code> | false | true - displays the label and scale of the axes. |
-| [options.scales.precision] | <code>number</code> | 4 | Formats a scale marks into a specified length. |
-| [options.scales.x] | <code>object</code> |  | x axis scale options of 4D objects. |
-| [options.scales.x.name] | <code>string</code> | "X" | axis name. |
-| [options.scales.x.zoomMultiplier] | <code>number</code> | 1.1 | zoom multiplier. |
-| [options.scales.x.offset] | <code>number</code> | 0.1 | position offset. |
-| [options.scales.x.min] | <code>number</code> | -1 | Minimum range of the x axis. |
-| [options.scales.x.max] | <code>number</code> | 1 | Maximum range of the x axis. |
-| [options.scales.x.marks] | <code>number</code> | 5 | Number of x scale marks. |
-| [options.scales.y] | <code>object</code> |  | y axis scale options of 4D objects. |
-| [options.scales.y.name] | <code>string</code> | "Y" | axis name. |
-| [options.scales.y.zoomMultiplier] | <code>number</code> | 1.1 | zoom multiplier. |
-| [options.scales.y.offset] | <code>number</code> | 0.1 | position offset. |
-| [options.scales.y.min] | <code>number</code> | -1 | Minimum range of the y axis. |
-| [options.scales.y.max] | <code>number</code> | 1 | Maximum range of the y axis. |
-| [options.scales.y.marks] | <code>number</code> | 5 | Number of y scale marks. |
-| [options.scales.z] | <code>object</code> |  | z axis scale options of 4D objects. |
-| [options.scales.z.zoomMultiplier] | <code>number</code> | 1.1 | zoom multiplier. |
-| [options.scales.z.offset] | <code>number</code> | 0.1 | position offset. |
-| [options.scales.z.name] | <code>string</code> | "Z" | axis name. |
-| [options.scales.z.min] | <code>number</code> | -1 | Minimum range of the z axis. |
-| [options.scales.z.max] | <code>number</code> | 1 | Maximum range of the z axis. |
-| [options.scales.z.marks] | <code>number</code> | 5 | Number of z scale marks. |
-| [options.scales.w] | <code>object</code> |  | w axis scale options of 4D objects. |
-| [options.scales.w.zoomMultiplier] | <code>number</code> | 1.1 | zoom multiplier. |
-| [options.scales.w.offset] | <code>number</code> | 0.1 | position offset. |
-| [options.scales.w.name] | <code>string</code> | "W" | axis name. |
-| [options.scales.w.min] | <code>number</code> | 0 | Minimum range of the w axis. |
-| [options.scales.w.max] | <code>number</code> | 100 | Maximum range of the w axis. |
-| [options.scales.t] | <code>object</code> |  | Animation time. |
-| [options.scales.t.zoomMultiplier] | <code>number</code> | 2 | zoom multiplier. |
-| [options.scales.t.offset] | <code>number</code> | 1 | position offset. |
-| [options.scales.t.name] | <code>string</code> | "T" | Time name. |
-| [options.scales.t.min] | <code>number</code> | 0 | Animation start time. |
-| [options.scales.t.max] | <code>number</code> | 1 | Animation stop time. |
-| [options.scales.t.marks] | <code>number</code> | 2 | Number of scenes of 3D objects animation. |
-
-## You can use the following functions in your code:
-
-### options.addSpriteTextIntersection( intersection, scene, mouse )
-
-Displays a [sprite text](https://github.com/anhr/three.js/blob/dev/src/objects/SpriteText.js) if you move mouse over an 3D object.
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| intersection | <code>object</code> |  | See [intersectObject](https://threejs.org/docs/index.html#api/en/core/Raycaster.intersectObject) for details. |
-| scene | <code>THREE.Scene</code> |  | scene. |
-| mouse | <code>THREE.Vector2</code> |  | mouse position. |
-
-* options.removeSpriteTextIntersection( scene )
-
-Hides a [sprite text](https://github.com/anhr/three.js/blob/dev/src/objects/SpriteText.js) if you move mouse out an object.
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| scene | <code>THREE.Scene</code> |  | scene. |
-
-### options.getPoints( t, arrayFuncs, a, b )
-
-Get array of THREE.Vector4 points.
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| t | <code>number</code> |  | first parameter of the [arrayFuncs](#arrayfuncs-item) item function. Start time of animation. |
-| arrayFuncs | <code>THREE.Vector4 or THREE.Vector3 or THREE.Vector2</code> |  | points.geometry.attributes.position array. See [arrayFuncs](#arrayfuncs-item) for details |
-| a | <code>number</code> | 1 | second parameter of the [arrayFuncs](#arrayfuncs-item) item function. |
-| b | <code>number</code> | 0 | third parameter of the [arrayFuncs](#arrayfuncs-item) item function. |
-
-returns array of THREE.Vector4 points.
-
-### options.getColors( t, arrayFuncs, scale )
-
-Get array of mesh colors.
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| t | <code>number</code> |  | first parameter of the [arrayFuncs](#arrayfuncs-item) item function. Start time of animation. |
-| arrayFuncs | <code>THREE.Vector4 or THREE.Vector3 or THREE.Vector2</code> |  | points.geometry.attributes.position array. See [arrayFuncs](#arrayfuncs-item) for details |
-| scale | <code>object</code> |  | options.scales.w |
-
-returns array of mesh colors.
 
 **Example.**
 ```
