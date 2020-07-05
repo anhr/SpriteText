@@ -84,7 +84,7 @@ Adds SpriteText settings folder into [gui](https://github.com/anhr/dat.gui).
 | [guiParams.options] | <code>string</code> |  | See [SpriteText options](https://github.com/anhr/SpriteText/blob/master/README.md#new-spritetext-text-position-options-).|
 | [guiParams.spriteFolder] | <code>string</code> |  | sprite folder name. Default is lang.spriteText|
 
- SpriteTextGui returns the GUI sprite folder.
+ SpriteTextGui returns the GUI SpriteText options folder.
 
 **Example.**
 ```
