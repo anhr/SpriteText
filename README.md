@@ -23,9 +23,9 @@ Creates a new sprite based text component.
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| text | <code>string or number</code> |  | The text to be displayed on the sprite. You can include a multiline text separated by "\r\n".|
+| text | <code>string or number</code> |  | The text to be displayed on the sprite. You can include a multiline text. Using the "\r\n" character to define line breaks.|
 | position | <code>THREE.Vector3</code> | new THREE.Vector3( 0, 0, 0 ) | Position of the text.|
-| [options] | <code>object</code> | undefinef | followed options is available: |
+| [options] | <code>object</code> | {} | followed options is available: |
 | [options.textHeight] | <code>number</code> | 0.1 | The height of the text.|
 | [options.sizeAttenuation] | <code>boolean</code> | false | Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only). See [sizeAttenuation](https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation) for details.|
 | [options.rotation] | <code>number</code> | 0 | The rotation of the sprite in radians. See [rotation](https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.rotation) for details.|
@@ -36,14 +36,14 @@ Creates a new sprite based text component.
 | [options.italic] | <code>boolean</code> | false | CSS font-style.|
 | [options.fontProperties] | <code>string</code> | "" | Other font properties. The font property uses the same syntax as the CSS font property. Examples: "900", "oblique lighter".|
 | [options.center] | <code>THREE.Vector2</code> | new THREE.Vector2(0, 1) | <p>The text's anchor point. See [center](https://threejs.org/docs/index.html#api/en/objects/Sprite.center) for details.</p><p>A value of (0.5, 0.5) corresponds to the midpoint of the text.</p><p>A value of (0, 0) corresponds to the left lower corner of the text.</p><p>A value of (0, 1) corresponds to the left upper corner of the text.</p>|
-| [options.rect] | <code>object</code> |  | rectangle around the text.|
+| [options.rect] | <code>object</code> | {} | rectangle around the text.|
 | [options.rect.displayRect] | <code>boolean</code> | false | true - the rectangle around the text is visible.|
 | [options.rect.backgroundColor] | <code>string</code> | 'rgba(0, 0, 0, 0)' - black transparent. | <p>background color. RGBA object or RGB object or HEX value.</p><p>Examples: 'rgba(0, 0, 255, 0.5)', '#00FF00'.</p><p>|
 | [options.rect.borderColor] | <code>string</code> | Same as options.fontColor 'rgba(255, 255, 255, 1)' - white. | border color. RGBA object or RGB object or HEX value.|
 | [options.rect.borderThickness] | <code>number</code> | 0 invisible border | border thickness.|
 | [options.rect.borderRadius] | <code>number</code> | 0 no radius | border corners radius.|
 
-### Common options for the group of the SpriteText
+### group.userData.optionsSpriteText - common options for the group of the SpriteText
 You can set options for all SpriteText from the group or scene and all child groups.
 Options of the child groups is more priority before parent group options.
 Example:
@@ -76,7 +76,7 @@ Adds SpriteText settings folder into [gui](https://github.com/anhr/dat.gui).
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | gui | <code>GUI</code> |  | see [dat.GUI](https://github.com/anhr/dat.gui) for details.|
-| group | <code>THREE.Group or THREE.Scene</code> |  | group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.|
+| group | <code>THREE.Group or THREE.Scene or THREE.Sprite</code> |  | <p>group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.</p><p>If group is THREE.Sprite then will have an effect for current SpriteText only</p>|
 | [guiParams] | <code>object</code> | {} | Followed parameters is allowed.|
 | [guiParams.getLanguageCode] | <code>Function</code> | Default returns the 'en' is English language. | <p>Your custom getLanguageCode() function.</p><p>returns the "primary language" subtag of the language version of the browser.</p><p>Examples: "en" - English language, "ru" Russian.</p><p>See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.</p><p>You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</p>|
 | [guiParams.lang] | <code>object</code> |  | <p>Object with localized language values.</p><p>Example of using of guiParams.lang:</p><p>guiParams = {</p><p></p><p>	getLanguageCode: function() { return 'az'; },</p><p>	lang: { textHeight: 'mətn boyu', languageCode: 'az' },</p><p></p><p>}</p>|
