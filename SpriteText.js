@@ -194,7 +194,7 @@ var SpriteText = function ( text, position, options ) {
 /**
  * Adds SpriteText settings folder into gui.
  * @param {GUI} gui see https://github.com/anhr/dat.gui for details
- * @param {THREE.Group} group group of SpriteText and of all child groups of SpriteText for which these settings will have an effect
+ * @param {THREE.Group|THREE.Scene} group group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect
  * @param {object} [guiParams] Followed parameters is allowed. Default is no parameters
  * @param {Function} [guiParams.getLanguageCode] Your custom getLanguageCode() function.
  * returns the "primary language" subtag of the language version of the browser.

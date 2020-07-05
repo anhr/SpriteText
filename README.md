@@ -75,19 +75,17 @@ Adds SpriteText settings folder into [gui](https://github.com/anhr/dat.gui).
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
 | gui | <code>GUI</code> |  | see [dat.GUI](https://github.com/anhr/dat.gui) for details.|
-| group | <code>THREE.Group</code> |  | group of SpriteText and of all child groups of SpriteText for which these settings will have an effect.|
-| guiParams | <code>THREE.Group</code> | undefined | Followed parameters is allowed.|
+| group | <code>THREE.Group or THREE.Scene</code> |  | group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.|
+| guiParams | <code>object</code> | {} | Followed parameters is allowed.|
 | guiParams.getLanguageCode | <code>Function</code> | Default returns the 'en' is English language. | <p>Your custom getLanguageCode() function.</p><p>returns the "primary language" subtag of the language version of the browser.</p><p>Examples: "en" - English language, "ru" Russian.</p><p>See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.</p><p>You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</p>|
-| guiParams.lang | <code>object</code> |  | <p>Object with localized language values.</p><p>Example of using of guiParams.lang:
-```
-guiParams = {
-
-	getLanguageCode: function() { return 'az'; },
-	lang: { textHeight: 'mətn boyu', languageCode: 'az' },
-
+| guiParams.lang | <code>object</code> |  | <p>Object with localized language values.</p><p>Example of using of guiParams.lang:</p>
+guiParams = {<br>
+<br>
+	getLanguageCode: function() { return 'az'; },<br>
+	lang: { textHeight: 'mətn boyu', languageCode: 'az' },<br>
+<br>
 }
-```
-</p>|
+|
 
  * @param {GUI} [guiParams.parentFolder] parent folder, returned by gui.addFolder(name) https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder
  * @param {string} [guiParams.options] See SpriteText options.
