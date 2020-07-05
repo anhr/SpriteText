@@ -211,7 +211,7 @@ guiParams = {
 
 }
  * @param {GUI} [guiParams.parentFolder] parent folder, returned by gui.addFolder(name) https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder
- * @param {string} [guiParams.options] See SpriteText options.
+ * @param {string} [guiParams.options] See SpriteText options https://github.com/anhr/SpriteText/blob/master/README.md#new-spritetext-text-position-options-.
  * @param {string} [guiParams.spriteFolder] sprite folder name. Default is lang.spriteText
  * @returns {GUI} sprite folder
  */
@@ -363,7 +363,8 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 							if ( group.userData.optionsSpriteText )
 								Object.keys( group.userData.optionsSpriteText ).forEach( function ( key ) {
 
-									options[key] = group.userData.optionsSpriteText[key];
+									if ( options[key] === undefined )//Child options have more priority before parent options
+										options[key] = group.userData.optionsSpriteText[key];
 
 								} );
 							while ( group.parent ) {
