@@ -43,16 +43,28 @@ Creates a new sprite based text component.
 | [options.rect.borderThickness] | <code>number</code> | 0 invisible border | border thickness.|
 | [options.rect.borderRadius] | <code>number</code> | 0 no radius | border corners radius.|
 
-You can set options for all SpriteText from the  group and all child groups. Example:
+You can set options for all SpriteText from the group or scene and all child groups.
+Options of the child groups is more priority before parent group options.
+Example:
 ```
+//options of the parent group or scene
+scene.userData.optionsSpriteText = {
+
+	fontColor: 'rgb(0, 255, 0)'//green color
+
+}
 var group = new THREE.Group();
-//options for all SpriteText from this group and all child groups
+
+//options of the child group
 group.userData.optionsSpriteText = {
 
 	fontColor: 'rgba(255, 255, 225, 0.5)'//white semi opacity color
 
 }
 scene.add( group );
+
+scene.add( new SpriteText( 'Scene' ) );//green color of the font
+group.add( new SpriteText( 'Group' ) );//white semi opacity color of the font
 ```
 
 
@@ -65,13 +77,18 @@ Adds SpriteText settings folder into [gui](https://github.com/anhr/dat.gui).
 | gui | <code>GUI</code> |  | see [dat.GUI](https://github.com/anhr/dat.gui) for details.|
 | group | <code>THREE.Group</code> |  | group of SpriteText and of all child groups of SpriteText for which these settings will have an effect.|
 | guiParams | <code>THREE.Group</code> | undefined | Followed parameters is allowed.|
-| guiParams.getLanguageCode | <code>Function</code> | undefined | <p>Your custom getLanguageCode() function.</p><p>returns the "primary language" subtag of the language version of the browser.</p><p>Examples: "en" - English language, "ru" Russian.</p><p>See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.</p><p>Default returns the 'en' is English language.</p><p>You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</p>|
+| guiParams.getLanguageCode | <code>Function</code> | Default returns the 'en' is English language. | <p>Your custom getLanguageCode() function.</p><p>returns the "primary language" subtag of the language version of the browser.</p><p>Examples: "en" - English language, "ru" Russian.</p><p>See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.</p><p>You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</p>|
+| guiParams.lang | <code>object</code> |  | <p>Object with localized language values.</p><p>Example of using of guiParams.lang:
+```
+guiParams = {
 
-* returns the "primary language" subtag of the language version of the browser.
-* Examples: "en" - English language, "ru" Russian.
-* See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.
-* Default returns the 'en' is English language.
- * @param {object} [guiParams.lang] Object with localized language values
+	getLanguageCode: function() { return 'az'; },
+	lang: { textHeight: 'mətn boyu', languageCode: 'az' },
+
+}
+```
+</p>|
+
  * @param {GUI} [guiParams.parentFolder] parent folder, returned by gui.addFolder(name) https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder
  * @param {string} [guiParams.options] See SpriteText options.
  * @param {string} [guiParams.spriteFolder] sprite folder name. Default is lang.spriteText

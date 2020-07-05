@@ -191,7 +191,6 @@ var SpriteText = function ( text, position, options ) {
 	return sprite;
 
 };
-
 /**
  * Adds SpriteText settings folder into gui.
  * @param {GUI} gui see https://github.com/anhr/dat.gui for details
@@ -204,6 +203,13 @@ var SpriteText = function ( text, position, options ) {
  * Default returns the 'en' is English language.
  * You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';
  * @param {object} [guiParams.lang] Object with localized language values
+ * Example of using of guiParams.lang:
+guiParams = {
+
+	getLanguageCode: function() { return 'az'; },
+	lang: { textHeight: 'mətn boyu', languageCode: 'az' },
+
+}
  * @param {GUI} [guiParams.parentFolder] parent folder, returned by gui.addFolder(name) https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder
  * @param {string} [guiParams.options] See SpriteText options.
  * @param {string} [guiParams.spriteFolder] sprite folder name. Default is lang.spriteText
