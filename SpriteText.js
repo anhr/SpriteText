@@ -25,7 +25,7 @@ function _getCenter( center ) {
  * @param {string|number} text The text to be displayed on the sprite. You can include a multiline text separated by "\r\n".
  * @param {THREE.Vector3} [position] Position of the text. Default is new THREE.Vector3(0,0,0).
  * @param {object} [options] followed options is available
- * @param {number} [options.textHeight] The height of the text. Default is 0.1.
+ * @param {number} [options.textHeight] The height of the text. Default is 0.04.
  * @param {boolean} [options.sizeAttenuation] Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.
  * See https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation
  * @param {number} [options.rotation] The rotation of the sprite in radians. Default is 0.
@@ -75,7 +75,7 @@ var SpriteText = function ( text, position, options ) {
 	sprite.userData.update = function ( optionsUpdate ) {
 
 		optionsUpdate = optionsUpdate || {};
-		var textHeight = options.textHeight || optionsUpdate.textHeight || 0.1,
+		var textHeight = options.textHeight || optionsUpdate.textHeight || 0.04,
 			sizeAttenuation = options.sizeAttenuation || optionsUpdate.sizeAttenuation || false,
 			rotation = options.rotation || optionsUpdate.rotation || 0,
 			fontFace = options.fontFace || optionsUpdate.fontFace || 'Arial',
