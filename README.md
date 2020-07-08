@@ -73,7 +73,7 @@ group.add( new SpriteText( 'Group' ) );//white semi opacity color of the font
 Call updateSpriteTextGroup if you want to update of the options of all SpriteText, added in to group and all child groups
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| group | <code>THREE.Group or THREE.Scene</code> |  | <p>group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.</p><p>If group is THREE.Sprite then will have an effect for current SpriteText only</p>|
+| group | <code>THREE.Group or THREE.Scene</code> |  | group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.|
 
 ### SpriteTextGui( gui, group, guiParams )
 
