@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>sprite text. three.js webgl</title>
@@ -45,7 +45,7 @@
 
 		}
 
-		var camera, scene, renderer, effect;//, group;
+		var camera, scene, renderer, effect, scale = 0.1;
 
 		init();
 		animate();
@@ -61,7 +61,9 @@
 
 			// camera
 
-			camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
+			camera = new THREE.PerspectiveCamera( 70 * scale, window.innerWidth / window.innerHeight, 1 * scale, 1000 * scale );
+//			camera = new THREE.PerspectiveCamera( 70 * scale, window.innerWidth / window.innerHeight, 1, 1000 );
+//			camera.position.set( 15 * scale, 20 * scale, 30 * scale );
 			camera.position.set( 15, 20, 30 );
 			scene.add( camera );
 
@@ -71,6 +73,7 @@
 			controls.minDistance = 25;
 			controls.maxDistance = 75;
 			controls.maxPolarAngle = Math.PI / 2;
+			controls.update();
 
 			scene.add( new THREE.AmbientLight( 0x222222 ) );
 
@@ -79,34 +82,11 @@
 			var light = new THREE.PointLight( 0xffffff, 1 );
 			camera.add( light );
 
-			// textures
-/*
-			var loader = new THREE.TextureLoader();
-			var texture = loader.load( '../three.js/dev/examples/textures/sprites/disc.png' );
-*/
-/*
-			group = new THREE.Group();
-			scene.add( group );
-*/
 
 			// points
 
-			var vertices = new THREE.CubeGeometry( 20, 20, 20 ).vertices;
-/*
-			var pointsMaterial = new THREE.PointsMaterial( {
+			var vertices = new THREE.CubeGeometry( 20 * scale, 20 * scale, 20 * scale ).vertices;
 
-				color: 0x0080ff,
-				map: texture,
-				size: 1,
-				alphaTest: 0.5
-
-			} );
-
-			var pointsGeometry = new THREE.BufferGeometry().setFromPoints( vertices );
-
-			var points = new THREE.Points( pointsGeometry, pointsMaterial );
-			group.add( points );
-*/
 			// convex hull
 
 			var meshMaterial = new THREE.MeshLambertMaterial( {
@@ -120,14 +100,12 @@
 			var mesh = new THREE.Mesh( meshGeometry, meshMaterial );
 			mesh.material.side = THREE.BackSide; // back faces
 			mesh.renderOrder = 0;
-//			group.add( mesh );
 			scene.add( mesh );
 
 			var meshMaterialClone = meshMaterial.clone();
 			var mesh = new THREE.Mesh( meshGeometry, meshMaterialClone );
 			mesh.material.side = THREE.FrontSide; // front faces
 			mesh.renderOrder = 1;
-//			group.add( mesh );
 			scene.add( mesh );
 
 			scene.add( new SpriteText( 'Default SpriteText' ) );
@@ -147,8 +125,8 @@
 			var gui = new dat.GUI();
 
 			var arraySpriteText = [
-				new SpriteText( -1, new THREE.Vector3( - 10, 4, 2 ) ),
-				new SpriteText( 'Array item 2', new THREE.Vector3( - 10, 1, 2 ) ),
+				new SpriteText( -1, new THREE.Vector3( - 10, 4, 2 ).multiplyScalar( scale ) ),
+				new SpriteText( 'Array item 2', new THREE.Vector3( - 10, 1, 2 ).multiplyScalar( scale ) ),
 			];
 
 			arraySpriteText.forEach( function ( item ) {
@@ -173,15 +151,20 @@
 			SpriteTextGui( gui, scene, {
 
 				getLanguageCode: getLanguageCode,
-/*				
-getLanguageCode: function() { return 'az'; },
-lang: { textHeight: 'mətn boyu', languageCode: 'az' },
-*/
 				settings: { zoomMultiplier: 1.5, },
 				cookie: cookie,
 				options: {
 
-					textHeight: 0.1,//0.05,
+					//textHeight: 0.1 * scale,//0.05,
+					textHeight: 0.1,
+
+					//Camera frustum vertical field of view, from bottom to top of view, in degrees. Default is 50.
+					//Вертикальное поле обзора камеры, снизу вверх, в градусах.
+					//Если добавить эту настройку, то видимый размер текста не будет зависить от изменения camera.fov.
+					//Тогда textHeight будет вычисляться как options.fov * textHeight / 50
+					//Если не определить поле textHeight (см. выше) то textHeight = 0.04,
+					fov: camera.fov,
+
 					//sizeAttenuation: false,//true,//Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.
 
 				}
@@ -191,8 +174,8 @@ lang: { textHeight: 'mətn boyu', languageCode: 'az' },
 			var groupLevel2 = new THREE.Group();
 			group.add( groupLevel2 );
 
-			groupLevel2.add( new SpriteText( 'groupLevel2\r\nSpriteText 1', new THREE.Vector3( -10, -15, 2 ) ) );
-			groupLevel2.add( new SpriteText( 'groupLevel2\r\nSpriteText 2', new THREE.Vector3(  10, -15, 2 ) ) );
+			groupLevel2.add( new SpriteText( 'groupLevel2\r\nSpriteText 1', new THREE.Vector3( -10, -15, 2 ).multiplyScalar( scale ) ) );
+			groupLevel2.add( new SpriteText( 'groupLevel2\r\nSpriteText 2', new THREE.Vector3(  10, -15, 2 ).multiplyScalar( scale ) ) );
 
 			//Settings for all SpriteText added to groupLevel2 and child groups
 			SpriteTextGui( gui, groupLevel2, {
@@ -230,7 +213,7 @@ lang: { textHeight: 'mətn boyu', languageCode: 'az' },
 			//SpriteText with individual options
 			var optionsIndividual = {
 					fontColor: 'rgba(0, 255, 0, 1)', //green
-					textHeight: 3,
+					textHeight: 3 * scale,
 					fontFace: fontFaces[2],
 					fontFaces: fontFaces,
 					center: new THREE.Vector2( 0.5, 0.5 ),
@@ -247,7 +230,7 @@ lang: { textHeight: 'mətn boyu', languageCode: 'az' },
 					},
 					sizeAttenuation: true,
 				}
-			var spriteTextIndividualOptions = new SpriteText( 'Individual options', new THREE.Vector3( 10, 2, 2 ), optionsIndividual );
+			var spriteTextIndividualOptions = new SpriteText( 'Individual options', new THREE.Vector3( 10, 2, 2 ).multiplyScalar( scale ), optionsIndividual );
 			scene.add( spriteTextIndividualOptions );
 			SpriteTextGui( gui, spriteTextIndividualOptions, {
 

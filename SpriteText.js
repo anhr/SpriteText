@@ -26,6 +26,10 @@ function _getCenter( center ) {
  * @param {THREE.Vector3} [position] Position of the text. Default is new THREE.Vector3(0,0,0).
  * @param {object} [options] followed options is available
  * @param {number} [options.textHeight] The height of the text. Default is 0.04.
+ * @param {number} [options.fov] Camera frustum vertical field of view, from bottom to top of view, in degrees.
+ * https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera.fov
+ * Set the fov option as camera.fov if you want to see text size is independent from camera.fov. The text height will be calculated as textHeight = fov * textHeight / 50
+ * Default is undefined.
  * @param {boolean} [options.sizeAttenuation] Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.
  * See https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation
  * @param {number} [options.rotation] The rotation of the sprite in radians. Default is 0.
@@ -76,6 +80,7 @@ var SpriteText = function ( text, position, options ) {
 
 		optionsUpdate = optionsUpdate || {};
 		var textHeight = options.textHeight || optionsUpdate.textHeight || 0.04,
+			fov = options.fov || optionsUpdate.fov,
 			sizeAttenuation = options.sizeAttenuation || optionsUpdate.sizeAttenuation || false,
 			rotation = options.rotation || optionsUpdate.rotation || 0,
 			fontFace = options.fontFace || optionsUpdate.fontFace || 'Arial',
@@ -86,6 +91,8 @@ var SpriteText = function ( text, position, options ) {
 			color = 'rgba(255, 255, 255, 1)',
 			fontColor = options.fontColor || optionsUpdate.fontColor || color,
 			center = _getCenter( options.center || optionsUpdate.center );
+		if ( fov !== undefined )
+			textHeight = fov * textHeight / 50;
 
 		rect.displayRect = rect.displayRect || false;
 		var borderThickness = rect.borderThickness ? rect.borderThickness : 5;
@@ -191,6 +198,42 @@ var SpriteText = function ( text, position, options ) {
 	return sprite;
 
 };
+
+function updateSpriteTextGroup( group ) {
+
+	group.children.forEach( function ( spriteItem ) {
+
+		if ( spriteItem instanceof THREE.Sprite ) {
+
+			var options = {};
+			function updateOptions( group ) {
+
+				if ( group.userData.optionsSpriteText )
+					Object.keys( group.userData.optionsSpriteText ).forEach( function ( key ) {
+
+						if ( options[key] === undefined )//Child options have more priority before parent options
+							options[key] = group.userData.optionsSpriteText[key];
+
+					} );
+				while ( group.parent ) {
+
+					group = group.parent;
+					updateOptions( group );
+
+				}
+
+			}
+			updateOptions( group );
+			if ( spriteItem.userData.update !== undefined )
+				spriteItem.userData.update( options );
+
+		} else if ( spriteItem instanceof THREE.Group )
+			updateSpriteTextGroup( spriteItem );
+
+	} );
+
+}
+
 /**
  * Adds SpriteText settings folder into gui.
  * @param {GUI} gui see https://github.com/anhr/dat.gui for details
@@ -351,40 +394,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 			} );
 		else if ( ( group instanceof THREE.Group ) || ( group instanceof THREE.Scene ) ){
 
-			function updateGroup( group ) {
-
-				group.children.forEach( function ( spriteItem ) {
-
-					if ( spriteItem instanceof THREE.Sprite ) {
-
-						var options = {};
-						function updateOptions( group ) {
-
-							if ( group.userData.optionsSpriteText )
-								Object.keys( group.userData.optionsSpriteText ).forEach( function ( key ) {
-
-									if ( options[key] === undefined )//Child options have more priority before parent options
-										options[key] = group.userData.optionsSpriteText[key];
-
-								} );
-							while ( group.parent ) {
-
-								group = group.parent;
-								updateOptions( group );
-								
-							}
-
-						}
-						updateOptions( group );
-						spriteItem.userData.update( options );
-
-					} else if ( spriteItem instanceof THREE.Group )
-						updateGroup( spriteItem );
-
-				} );
-
-			}
-			updateGroup( group );
+			updateSpriteTextGroup( group );
 
 		} else if ( group instanceof THREE.Sprite )
 			group.userData.update( options );
@@ -395,10 +405,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 		if ( !noSave )
 			cookie.setObject( cookieName, options );
-/*
-		copyObject( optionsCookie, options );
-		guiParams.cookie.cookie.setObject( guiParams.cookie.name, optionsCookie );
-*/
 
 	}
 
@@ -433,44 +439,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 			settings: guiParams.settings,
 
 		} );
-/*
-		var scaleController = fSpriteText.add( new ScaleController( function ( customController, action ) {
 
-			controller.setValue( action( controller.getValue(), scaleController.getValue() ) );
-			updateSpriteText();
-
-		},
-			{
-
-//				settings: optionsGroup[axisName],
-				getLanguageCode: guiParams.getLanguageCode,
-
-			} ) ).onChange( function ( value ) {
-
-				scaleController.zoomMultiplier = value;
-//				cookie.setObject( cookieName, optionsGroup );
-
-			} );
-		var controller = dat.controllerZeroStep( fSpriteText, options, textHeight, function ( value ) {
-
-			updateSpriteText();
-
-		} );
-		dat.controllerNameAndTitle( controller, lang.textHeight, lang.textHeightTitle );
-*/		
-
-/*
-		optionsCookie[textHeight] = options.textHeight;
-		var textHeightDefault = optionsDefault.textHeight,
-			min = textHeightDefault / 3,
-			max = textHeightDefault * 3;
-		dat.controllerNameAndTitle(
-			fSpriteText.add( options, textHeight, min, max, ( max - min ) / 100 ).onChange( function ( value ) {
-
-				updateSpriteText();
-
-			} ), lang.textHeight, lang.textHeightTitle );
-*/
 
 	}
 
@@ -740,26 +709,4 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 };
 
-export { SpriteText, SpriteTextGui };
-/*
-function copyObject( dest, src ) {
-
-	if ( src === undefined )
-		return;
-	Object.keys( src ).forEach( function ( key ) {
-
-		if ( key === "cookie" )
-			return;
-		if ( typeof src[key] === "object" )
-			Object.keys( src[key] ).forEach( function ( key2 ) {
-
-				if ( dest[key] === undefined ) dest[key] = {};
-				dest[key][key2] = src[key][key2];
-
-			} );
-		else dest[key] = src[key];
-
-	} );
-
-}
-*/
+export { SpriteText, SpriteTextGui, updateSpriteTextGroup };

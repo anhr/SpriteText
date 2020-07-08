@@ -12,7 +12,7 @@ Uses in my projects:
 ## Quick start
 The easiest way to use SpriteText in your code is import SpriteText and SpriteTextGui from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
 ```
-import { SpriteText, SpriteTextGui } from './SpriteText.js';
+import { SpriteText, SpriteTextGui, updateSpriteTextGroup } from './SpriteText.js';
 ```
 
 Now you can use SpriteText and SpriteTextGui in your javascript code.
@@ -68,6 +68,12 @@ scene.add( new SpriteText( 'Scene' ) );//green color of the font
 group.add( new SpriteText( 'Group' ) );//white semi opacity color of the font
 ```
 
+### updateSpriteTextGroup( group )
+
+Call updateSpriteTextGroup if you want to update of the options of all SpriteText, added in to group and all child groups
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| group | <code>THREE.Group or THREE.Scene</code> |  | <p>group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.</p><p>If group is THREE.Sprite then will have an effect for current SpriteText only</p>|
 
 ### SpriteTextGui( gui, group, guiParams )
 
