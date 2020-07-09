@@ -195,9 +195,36 @@ var SpriteText = function ( text, position, options ) {
 
 	};
 	sprite.userData.update();
+
+	sprite.userData.updateText = function ( _text ) {
+
+		text = _text;
+		const options = {}
+		updateOptions( sprite.parent, options );
+		sprite.userData.update( options );
+
+	}
 	return sprite;
 
 };
+
+function updateOptions( group, options ) {
+
+	if ( group.userData.optionsSpriteText )
+		Object.keys( group.userData.optionsSpriteText ).forEach( function ( key ) {
+
+			if ( options[key] === undefined )//Child options have more priority before parent options
+				options[key] = group.userData.optionsSpriteText[key];
+
+		} );
+	while ( group.parent ) {
+
+		group = group.parent;
+		updateOptions( group, options );
+
+	}
+
+}
 
 function updateSpriteTextGroup( group ) {
 
@@ -206,24 +233,7 @@ function updateSpriteTextGroup( group ) {
 		if ( spriteItem instanceof THREE.Sprite ) {
 
 			var options = {};
-			function updateOptions( group ) {
-
-				if ( group.userData.optionsSpriteText )
-					Object.keys( group.userData.optionsSpriteText ).forEach( function ( key ) {
-
-						if ( options[key] === undefined )//Child options have more priority before parent options
-							options[key] = group.userData.optionsSpriteText[key];
-
-					} );
-				while ( group.parent ) {
-
-					group = group.parent;
-					updateOptions( group );
-
-				}
-
-			}
-			updateOptions( group );
+			updateOptions( group, options );
 			if ( spriteItem.userData.update !== undefined )
 				spriteItem.userData.update( options );
 
