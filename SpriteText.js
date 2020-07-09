@@ -160,7 +160,7 @@ var SpriteText = function ( text, position, options ) {
 				borderThickness / 2,
 				canvas.width - borderThickness,
 				canvas.height - borderThickness,
-				rect.borderRadius === undefined ? 30 : rect.borderRadius
+				rect.borderRadius === undefined ? 0 : rect.borderRadius
 			);
 
 		}
