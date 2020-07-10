@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>sprite text. three.js webgl</title>
@@ -69,7 +69,7 @@
 
 			// controls
 
-			var controls = new OrbitControls( camera, renderer.domElement );
+			const controls = new OrbitControls( camera, renderer.domElement );
 			controls.minDistance = 25;
 			controls.maxDistance = 75;
 			controls.maxPolarAngle = Math.PI / 2;
@@ -79,38 +79,38 @@
 
 			// light
 
-			var light = new THREE.PointLight( 0xffffff, 1 );
+			const light = new THREE.PointLight( 0xffffff, 1 );
 			camera.add( light );
 
 
 			// points
 
-			var vertices = new THREE.CubeGeometry( 20 * scale, 20 * scale, 20 * scale ).vertices;
+			const vertices = new THREE.CubeGeometry( 20 * scale, 20 * scale, 20 * scale ).vertices;
 
 			// convex hull
 
-			var meshMaterial = new THREE.MeshLambertMaterial( {
+			const meshMaterial = new THREE.MeshLambertMaterial( {
 				color: 0xffffff,
 				opacity: 0.5,
 				transparent: true,
 			} );
 
-			var meshGeometry = new ConvexBufferGeometry( vertices );
+			const meshGeometry = new ConvexBufferGeometry( vertices );
 
-			var mesh = new THREE.Mesh( meshGeometry, meshMaterial );
-			mesh.material.side = THREE.BackSide; // back faces
-			mesh.renderOrder = 0;
-			scene.add( mesh );
+			const meshBack = new THREE.Mesh( meshGeometry, meshMaterial );
+			meshBack.material.side = THREE.BackSide; // back faces
+			meshBack.renderOrder = 0;
+			scene.add( meshBack );
 
-			var meshMaterialClone = meshMaterial.clone();
-			var mesh = new THREE.Mesh( meshGeometry, meshMaterialClone );
-			mesh.material.side = THREE.FrontSide; // front faces
-			mesh.renderOrder = 1;
-			scene.add( mesh );
+			const meshMaterialClone = meshMaterial.clone();
+			const meshFront = new THREE.Mesh( meshGeometry, meshMaterialClone );
+			meshFront.material.side = THREE.FrontSide; // front faces
+			meshFront.renderOrder = 1;
+			scene.add( meshFront );
 
 			scene.add( new SpriteText( 'Default SpriteText' ) );
 
-			var group = new THREE.Group();
+			const group = new THREE.Group();
 			//options for all SpriteText from this group and all child groups
 			group.userData.optionsSpriteText = {
 
@@ -119,12 +119,12 @@
 			}
 			scene.add( group );
 
-			var fontFaces = ['Arial', 'Verdana', 'Times'];
+			const fontFaces = ['Arial', 'Verdana', 'Times'];
 
 			//dat-gui JavaScript Controller Library
-			var gui = new dat.GUI();
+			const gui = new dat.GUI();
 
-			var arraySpriteText = [
+			const arraySpriteText = [
 				new SpriteText( -1, new THREE.Vector3( - 10, 4, 2 ).multiplyScalar( scale ) ),
 				new SpriteText( 'Array item 2', new THREE.Vector3( - 10, 1, 2 ).multiplyScalar( scale ) ),
 			];
@@ -172,7 +172,7 @@
 
 			} );
 
-			var groupLevel2 = new THREE.Group();
+			const groupLevel2 = new THREE.Group();
 			group.add( groupLevel2 );
 
 			groupLevel2.add( new SpriteText( 'groupLevel2\r\nSpriteText 1', new THREE.Vector3( -10, -15, 2 ).multiplyScalar( scale ) ) );
@@ -187,13 +187,6 @@
 				cookie: cookie,
 				options: {
 
-/*
-					sizeAttenuation: false,//true,//Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.
-					textHeight: 0.07,
-					fontFace: fontFaces[0],
-					fontFaces: fontFaces,
-					fontProperties: '',
-*/
 					rotation: 0,
 					rect: {
 						displayRect: true,
@@ -212,7 +205,7 @@
 			} );
 
 			//SpriteText with individual options
-			var optionsIndividual = {
+			const optionsIndividual = {
 					fontColor: 'rgba(0, 255, 0, 1)', //green
 					textHeight: 3 * scale,
 					fontFace: fontFaces[2],
@@ -231,7 +224,7 @@
 					},
 					sizeAttenuation: true,
 				}
-			var spriteTextIndividualOptions = new SpriteText( 'Individual options', new THREE.Vector3( 10, 2, 2 ).multiplyScalar( scale ), optionsIndividual );
+			const spriteTextIndividualOptions = new SpriteText( 'Individual options', new THREE.Vector3( 10, 2, 2 ).multiplyScalar( scale ), optionsIndividual );
 			scene.add( spriteTextIndividualOptions );
 			SpriteTextGui( gui, spriteTextIndividualOptions, {
 
@@ -242,7 +235,7 @@
 			} );
 
 			//cube settings
-			var fCube = gui.addFolder( 'cube' );
+			const fCube = gui.addFolder( 'cube' );
 			fCube.add( meshMaterial, 'transparent' );
 			fCube.add( meshMaterial, 'depthTest' );
 
@@ -256,7 +249,7 @@
 
 
 			//default button
-			var defaultParams = {
+			const defaultParams = {
 
 				defaultF: function ( value ) {
 
