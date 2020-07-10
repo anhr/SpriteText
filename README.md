@@ -131,30 +131,30 @@ Please use the userData.restore() function of the folder that was returned from 
 
 Example
 ```
-	options = {
+options = {
 
-		textHeight: 0.1,
-		sizeAttenuation: false,
+	textHeight: 0.1,
+	sizeAttenuation: false,
 
-	}
-	const fSpriteTextAll = SpriteTextGui( gui, scene, {
+}
+const fSpriteTextAll = SpriteTextGui( gui, scene, {
 
-		getLanguageCode: getLanguageCode,
-		settings: { zoomMultiplier: 1.5, },
-		options: options
+	getLanguageCode: getLanguageCode,
+	settings: { zoomMultiplier: 1.5, },
+	options: options
 
-	} );
+} );
 
-	//Change of the text height
-	options.textHeight = 0.2;
+//Change of the text height
+options.textHeight = 0.2;
 
-	//update of the options of all SpriteText, added in to group and all child groups
-	updateSpriteTextGroup( group );
+//update of the options of all SpriteText, added in to group and all child groups
+updateSpriteTextGroup( group );
 
-	//To do something...
+//To do something...
 
-	//Restore options.textHeight to 0.1
-	fSpriteTextAll.userData.restore();
+//Restore options.textHeight to 0.1
+fSpriteTextAll.userData.restore();
 ```
 
 
