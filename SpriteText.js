@@ -389,7 +389,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	}
 
 	guiParams.spriteFolder = guiParams.spriteFolder || lang.spriteText;
-	const cookieName = guiParams.spriteFolder;
+	const cookieName = guiParams.cookieName || guiParams.spriteFolder;
 	const cookie = guiParams.cookie || new Cookie.defaultCookie();
 	cookie.getObject( cookieName, options, options );
 	if ( ( group instanceof THREE.Sprite !== true ) && ( group.userData.optionsSpriteText === undefined ) )
