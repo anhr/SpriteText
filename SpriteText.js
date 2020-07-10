@@ -274,7 +274,7 @@ guiParams = {
 var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	guiParams = guiParams || {};
-	const options = guiParams.options || {},
+	const options = guiParams.options || group.userData.optionsSpriteText || {},
 //		optionsCookie = {},
 		optionsDefault = JSON.parse( JSON.stringify( options ) );
 	Object.freeze( optionsDefault );
