@@ -148,13 +148,14 @@
 			effect.setSize( window.innerWidth, window.innerHeight );
 
 			//Settings for all SpriteText added to scene and child groups
-			SpriteTextGui( gui, scene, {
+			const fSpriteTextAll = SpriteTextGui( gui, scene, {
 
 				getLanguageCode: getLanguageCode,
 				settings: { zoomMultiplier: 1.5, },
 				cookie: cookie,
 				options: {
 
+					//rotation: 0,
 					//textHeight: 0.1 * scale,//0.05,
 					textHeight: 0.1,
 
@@ -178,7 +179,7 @@
 			groupLevel2.add( new SpriteText( 'groupLevel2\r\nSpriteText 2', new THREE.Vector3(  10, -15, 2 ).multiplyScalar( scale ) ) );
 
 			//Settings for all SpriteText added to groupLevel2 and child groups
-			SpriteTextGui( gui, groupLevel2, {
+			const fSpriteTextGroupLevel2 = SpriteTextGui( gui, groupLevel2, {
 
 				spriteFolder: 'groupLevel2 sprites',
 				getLanguageCode: getLanguageCode,
@@ -253,6 +254,20 @@
 
 			} );
 
+
+			//default button
+			var defaultParams = {
+
+				defaultF: function ( value ) {
+
+					fSpriteTextAll.userData.restore();
+					fSpriteTextGroupLevel2.userData.restore();
+
+				},
+
+			};
+			dat.controllerNameAndTitle( gui.add( defaultParams, 'defaultF' ), 'Default' );
+		
 			//
 
 			window.addEventListener( 'resize', onWindowResize, false );

@@ -7,7 +7,10 @@ import * as THREE from '../../three.js/dev/build/three.module.js';
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
 import { dat } from '../../commonNodeJS/master/dat.module.js';
-import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';
+
+//import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';
+import ScaleController from '../../commonNodeJS/master/ScaleController.js';
+
 import Cookie from '../../cookieNodeJS/master/cookie.js';
 //import cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
 
@@ -63,24 +66,24 @@ var SpriteText = function ( text, position, options ) {
 	position = position || new THREE.Vector3( 0, 0, 0 );
 	options = options || {};
 
-	var sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
+	const sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
 
 		map: new THREE.Texture(),
 		sizeAttenuation: options.sizeAttenuation !== undefined ? options.sizeAttenuation :
 			false,//The size of the sprite is not attenuated by the camera depth. (Perspective camera only.)
 
 	} ) );
-	var canvas = document.createElement( 'canvas' );
+	const canvas = document.createElement( 'canvas' );
 	sprite.material.map.minFilter = THREE.LinearFilter;
-	var fontSize = 90;
+	const fontSize = 90;
 	const context = canvas.getContext( '2d' );
 
-	var angleDistance = 1;
+//	var angleDistance = 1;
 	sprite.userData.update = function ( optionsUpdate ) {
 
 		optionsUpdate = optionsUpdate || {};
-		var textHeight = options.textHeight || optionsUpdate.textHeight || 0.04,
-			fov = options.fov || optionsUpdate.fov,
+		var textHeight = options.textHeight || optionsUpdate.textHeight || 0.04;
+		const fov = options.fov || optionsUpdate.fov,
 			sizeAttenuation = options.sizeAttenuation || optionsUpdate.sizeAttenuation || false,
 			rotation = options.rotation || optionsUpdate.rotation || 0,
 			fontFace = options.fontFace || optionsUpdate.fontFace || 'Arial',
@@ -95,8 +98,8 @@ var SpriteText = function ( text, position, options ) {
 			textHeight = fov * textHeight / 50;
 
 		rect.displayRect = rect.displayRect || false;
-		var borderThickness = rect.borderThickness ? rect.borderThickness : 5;
-		var font = `${fontProperties}${bold ? 'bold ' : ''}${italic ? 'italic ' : ''}${fontSize}px ${fontFace}`;
+		const borderThickness = rect.borderThickness ? rect.borderThickness : 5,
+			font = `${fontProperties}${bold ? 'bold ' : ''}${italic ? 'italic ' : ''}${fontSize}px ${fontFace}`;
 
 		context.font = font;
 
@@ -170,7 +173,7 @@ var SpriteText = function ( text, position, options ) {
 		if ( linesCount > 1 ) {
 			for ( var i = 0; i < lines.length; i++ ) {
 
-				var line = lines[i];
+				const line = lines[i];
 				context.fillText( line, borderThickness, canvas.height - ( ( lines.length - i - 1 ) * fontSize ) - borderThickness );
 
 			}
@@ -181,7 +184,7 @@ var SpriteText = function ( text, position, options ) {
 		sprite.material.map.image = canvas;
 		sprite.material.map.needsUpdate = true;
 
-		var th = textHeight * angleDistance * linesCount;
+		const th = textHeight * linesCount;// * angleDistance;
 		sprite.scale.set( th * canvas.width / canvas.height, th );
 		sprite.position.copy( position );
 		sprite.center = center;
@@ -271,14 +274,14 @@ guiParams = {
 var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	guiParams = guiParams || {};
-	var options = guiParams.options || {};
-//		optionsCookie = {};
-	const optionsDefault = JSON.parse( JSON.stringify( options ) );
+	const options = guiParams.options || {},
+//		optionsCookie = {},
+		optionsDefault = JSON.parse( JSON.stringify( options ) );
 	Object.freeze( optionsDefault );
 
 	//Localization
 
-	var lang = {
+	const lang = {
 
 		spriteText: 'Sprite Text',
 
@@ -324,7 +327,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	};
 
-	var _languageCode = guiParams.getLanguageCode === undefined ? 'en'//Default language is English
+	const _languageCode = guiParams.getLanguageCode === undefined ? 'en'//Default language is English
 		: guiParams.getLanguageCode();
 	switch ( _languageCode ) {
 
@@ -386,10 +389,10 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	}
 
 	guiParams.spriteFolder = guiParams.spriteFolder || lang.spriteText;
-	var cookieName = guiParams.spriteFolder;
-	let cookie = guiParams.cookie || new Cookie.defaultCookie();
+	const cookieName = guiParams.spriteFolder;
+	const cookie = guiParams.cookie || new Cookie.defaultCookie();
 	cookie.getObject( cookieName, options, options );
-	if ( group instanceof THREE.Sprite !== true )
+	if ( ( group instanceof THREE.Sprite !== true ) && ( group.userData.optionsSpriteText === undefined ) )
 		group.userData.optionsSpriteText = options;
 
 	//
@@ -422,7 +425,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 		guiParams.parentFolder = gui;
 
 	//Sprite folder
-	var fSpriteText = guiParams.parentFolder.addFolder( guiParams.spriteFolder );
+	const fSpriteText = guiParams.parentFolder.addFolder( guiParams.spriteFolder );
 
 /*
 	//Sprite text
@@ -439,9 +442,25 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	}
 */
 	//Sprite text height
-	var textHeight = 'textHeight';
+	const textHeight = 'textHeight';
 	if ( options.hasOwnProperty( textHeight ) && ( options[textHeight] !== undefined ) ) {
 
+		var scaleController = fSpriteText.add( new ScaleController( function ( customController, action ) {
+
+			var value = action( controller.getValue(), scaleController.getValue() );
+			controller.setValue( value );
+			updateSpriteText();
+
+		},
+			{
+
+				getLanguageCode: guiParams.getLanguageCode,
+				settings: guiParams.settings,
+
+			} ) ).onChange( function ( value ) { scaleController.zoomMultiplier = value; } );
+		var controller = dat.controllerZeroStep( fSpriteText, options, textHeight, function ( value ) { updateSpriteText(); } );
+		dat.controllerNameAndTitle( controller, lang.textHeight, lang.textHeightTitle );
+/*
 		ScaleControllers( fSpriteText, options, textHeight, function() { updateSpriteText(); }, {
 
 			text: lang.textHeight, textTitle: lang.textHeightTitle,
@@ -449,7 +468,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 			settings: guiParams.settings,
 
 		} );
-
+*/
 
 	}
 
@@ -493,7 +512,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	}
 
 	//rotation
-	var rotation = 'rotation';
+	const rotation = 'rotation';
 	if ( options.hasOwnProperty( rotation ) ) {
 
 		var min = 0,
@@ -510,7 +529,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	//font properties
 	if ( options.hasOwnProperty( 'fontProperties' ) ) {
 
-//		optionsCookie['fontProperties'] = options.fontProperties;
 		dat.controllerNameAndTitle(
 			fSpriteText.add( options, 'fontProperties' ).onChange( function ( value ) {
 
@@ -523,7 +541,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	//font style
 	if ( options.hasOwnProperty( 'font' ) ) {
 
-//		optionsCookie['font'] = options.font;
 		var controllerFont = fSpriteText.add( options, 'font' );
 		controllerFont.__input.readOnly = true;
 		dat.controllerNameAndTitle( controllerFont, lang.fontStyle, lang.fontStyleTitle );
@@ -534,18 +551,17 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	if ( options.hasOwnProperty( 'rect' ) ) {
 
 		if ( options.rect.displayRect === undefined ) options.rect.displayRect = false;
-//		optionsCookie['displayRect'] = options.displayRect;
 		dat.controllerNameAndTitle( fSpriteText.add( options.rect, 'displayRect' ).onChange( function ( value ) {
 
 			updateSpriteText();
 			fRect.domElement.style.display = options.rect.displayRect ? 'block' : 'none';
 
 		} ), lang.displayRect, lang.displayRectTitle );
-		var fRect = fSpriteText.addFolder( lang.displayRect );//'Border'
+		const fRect = fSpriteText.addFolder( lang.displayRect );//'Border'
 		fRect.domElement.style.display = options.rect.displayRect ? 'block' : 'none';
 
 		//border thickness
-		var borderThickness = 'borderThickness';
+		const borderThickness = 'borderThickness';
 		if ( options.rect.hasOwnProperty( borderThickness ) ) {
 
 			dat.controllerNameAndTitle(
@@ -558,7 +574,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 		}
 
 		//border сolor
-		var borderColor = 'borderColor';
+		const borderColor = 'borderColor';
 		if ( options.rect.hasOwnProperty( borderColor ) ) {
 
 			dat.controllerNameAndTitle( fRect.addColor( options.rect, borderColor ).onChange( function ( value ) {
@@ -570,7 +586,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 		}
 
 		//background color
-		var backgroundColor = 'backgroundColor';
+		const backgroundColor = 'backgroundColor';
 		if ( options.rect.hasOwnProperty( backgroundColor ) ) {
 
 			dat.controllerNameAndTitle( fRect.addColor( options.rect, backgroundColor ).onChange( function ( value ) {
@@ -582,7 +598,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 		}
 
 		//border radius
-		var borderRadius = 'borderRadius';
+		const borderRadius = 'borderRadius';
 		if ( options.rect.hasOwnProperty( borderRadius ) ) {
 
 			dat.controllerNameAndTitle(
@@ -615,7 +631,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 //		optionsCookie['center'] = options.center;
 
 		//anchor folder
-		var fAnchor = fSpriteText.addFolder( 'center' );
+		const fAnchor = fSpriteText.addFolder( 'center' );
 		dat.folderNameAndTitle( fAnchor, lang.anchor, lang.anchorTitle );
 
 		//anchor x
@@ -636,7 +652,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	//size attenuation. Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.
 	//See https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation
-	var sizeAttenuation = 'sizeAttenuation';
+	const sizeAttenuation = 'sizeAttenuation';
 	if ( options.hasOwnProperty( sizeAttenuation ) && ( options[sizeAttenuation] !== undefined ) ) {
 
 		dat.controllerNameAndTitle( fSpriteText.add( options, sizeAttenuation ).onChange( function ( value ) {
@@ -648,68 +664,70 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	}
 
 	//default button
-	let defaultParams = {
-			defaultF: function ( value ) {
+	fSpriteText.userData = {
+		restore: function ( value ) {
 
-				function setValues( folder, key, optionsDefault ) {
+			function setValues( folder, key, optionsDefault ) {
 
-					folder.__controllers.forEach( function ( controller ) {
+				folder.__controllers.forEach( function ( controller ) {
 
-						if ( controller.property !== key ) {
+					if ( controller.property !== key ) {
 
-							if ( typeof optionsDefault[key] !== "object" )
-								return;
-							Object.keys( optionsDefault[key] ).forEach( function ( optionKey ) {
-
-								if ( controller.property !== optionKey )
-									return;
-								controller.setValue( optionsDefault[key][optionKey] );
-
-							} );
+						if ( typeof optionsDefault[key] !== "object" )
 							return;
+						Object.keys( optionsDefault[key] ).forEach( function ( optionKey ) {
 
-						}
-						controller.setValue( optionsDefault[key] );
+							if ( controller.property !== optionKey )
+								return;
+							controller.setValue( optionsDefault[key][optionKey] );
+
+						} );
+						return;
+
+					}
+					controller.setValue( optionsDefault[key] );
+
+				} );
+
+			}
+
+			Object.keys( optionsDefault ).forEach( function ( key ) {
+
+				setValues( fSpriteText, key, optionsDefault );
+				if ( typeof optionsDefault[key] === "object" ) {
+
+					Object.keys( optionsDefault[key] ).forEach( function ( keyObject ) {
+
+						Object.keys( fSpriteText.__folders ).forEach( function ( keyFolder ) {
+
+							setValues( fSpriteText.__folders[keyFolder], keyObject, optionsDefault[key] );
+
+						} );
 
 					} );
 
 				}
 
-				Object.keys( optionsDefault ).forEach( function ( key ) {
+				Object.keys( fSpriteText.__folders ).forEach( function ( keyFolder ) {
 
-					setValues( fSpriteText, key, optionsDefault );
-					if ( typeof optionsDefault[key] === "object" ) {
+					if ( keyFolder !== key )
+						return;
+					Object.keys( optionsDefault[keyFolder] ).forEach( function ( key ) {
 
-						Object.keys( optionsDefault[key] ).forEach( function ( keyObject ) {
-
-							Object.keys( fSpriteText.__folders ).forEach( function ( keyFolder ) {
-
-								setValues( fSpriteText.__folders[keyFolder], keyObject, optionsDefault[key] );
-
-							} );
-
-						} );
-
-					}
-
-					Object.keys( fSpriteText.__folders ).forEach( function ( keyFolder ) {
-
-						if ( keyFolder !== key )
-							return;
-						Object.keys( optionsDefault[keyFolder] ).forEach( function ( key ) {
-
-							setValues( fSpriteText.__folders[keyFolder], key, optionsDefault[keyFolder] );
-
-						} );
+						setValues( fSpriteText.__folders[keyFolder], key, optionsDefault[keyFolder] );
 
 					} );
 
 				} );
-//				if ( guiParams.default !== undefined ) guiParams.default();
 
-			},
+			} );
 
-		};
+			//непонятно почему не восстанавливается высота текста textHeight. Пришлось засунуть сюда этот костыль
+			updateSpriteText();
+
+		}
+	}
+	const defaultParams = { defaultF: fSpriteText.userData.restore, };
 	if ( optionsDefault === undefined ) console.error( 'SpriteTextGui: optionsDefault = ' + optionsDefault );
 	dat.controllerNameAndTitle( fSpriteText.add( defaultParams, 'defaultF' ), lang.defaultButton, lang.defaultTitle );
 
