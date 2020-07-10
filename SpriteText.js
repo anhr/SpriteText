@@ -1,5 +1,5 @@
 /**
- * A sprite based text component.
+ * A sprite based text component. Text that always faces towards the camera.
  * @author anhr / https://github.com/anhr/
 */
 
@@ -284,6 +284,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	const lang = {
 
 		spriteText: 'Sprite Text',
+		spriteTextTitle: 'Settings for text that always faces towards the camera.',
 
 		text: 'Text',
 		textTitle: 'The text to be displayed on the sprite.',
@@ -332,7 +333,9 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	switch ( _languageCode ) {
 
 		case 'ru'://Russian language
+
 			lang.spriteText = 'Текстовый спрайт';//'Sprite Text'
+			lang.spriteTextTitle = 'Настройки для текста, который всегда обращен к камере.';
 
 			lang.text = 'Текст';
 			lang.textTitle = 'Текст, который будет отображен в спрайте.';
@@ -430,6 +433,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	//Sprite folder
 	const fSpriteText = guiParams.parentFolder.addFolder( guiParams.spriteFolder );
+	dat.folderNameAndTitle( fSpriteText, guiParams.spriteFolder, lang.spriteTextTitle );
 
 /*
 	//Sprite text
