@@ -8,8 +8,8 @@ import * as THREE from '../../three.js/dev/build/three.module.js';
 
 import { dat } from '../../commonNodeJS/master/dat.module.js';
 
-//import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';
-import ScaleController from '../../commonNodeJS/master/ScaleController.js';
+import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';
+//import ScaleController from '../../commonNodeJS/master/ScaleController.js';
 
 import Cookie from '../../cookieNodeJS/master/cookie.js';
 //import cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
@@ -395,10 +395,14 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	if ( ( group instanceof THREE.Sprite !== true ) && ( group.userData.optionsSpriteText === undefined ) )
 		group.userData.optionsSpriteText = options;
 
-	//
-
+	//updateSpriteText function is repeatedly called during restore settings to default values.
+	//See fSpriteText.userData.restore() function for details.
+	//I have set to false before restoring and set to true again and called function once after restoring for resolving of problem.
+	var boUpdateSpriteText = true;
 	function updateSpriteText( noSave ) {
 
+		if ( !boUpdateSpriteText )
+			return;
 		if ( Array.isArray( group ) )
 			group.forEach( function ( spriteItem ) {
 
@@ -445,6 +449,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	const textHeight = 'textHeight';
 	if ( options.hasOwnProperty( textHeight ) && ( options[textHeight] !== undefined ) ) {
 
+/*
 		var scaleController = fSpriteText.add( new ScaleController( function ( customController, action ) {
 
 			var value = action( controller.getValue(), scaleController.getValue() );
@@ -460,7 +465,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 			} ) ).onChange( function ( value ) { scaleController.zoomMultiplier = value; } );
 		var controller = dat.controllerZeroStep( fSpriteText, options, textHeight, function ( value ) { updateSpriteText(); } );
 		dat.controllerNameAndTitle( controller, lang.textHeight, lang.textHeightTitle );
-/*
+*/
 		ScaleControllers( fSpriteText, options, textHeight, function() { updateSpriteText(); }, {
 
 			text: lang.textHeight, textTitle: lang.textHeightTitle,
@@ -468,7 +473,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 			settings: guiParams.settings,
 
 		} );
-*/
 
 	}
 
@@ -667,6 +671,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	fSpriteText.userData = {
 		restore: function ( value ) {
 
+			boUpdateSpriteText = false;
 			function setValues( folder, key, optionsDefault ) {
 
 				folder.__controllers.forEach( function ( controller ) {
@@ -722,7 +727,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 			} );
 
-			//непонятно почему не восстанавливается высота текста textHeight. Пришлось засунуть сюда этот костыль
+			boUpdateSpriteText = true;
 			updateSpriteText();
 
 		}
