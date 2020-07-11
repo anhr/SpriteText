@@ -267,7 +267,7 @@ guiParams = {
 
 }
  * @param {GUI} [guiParams.parentFolder] parent folder, returned by gui.addFolder(name) https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder
- * @param {string} [guiParams.options] See SpriteText options https://github.com/anhr/SpriteText/blob/master/README.md#new-spritetext-text-position-options-.
+ * @param {string} [guiParams.options] See SpriteText options https://github.com/anhr/SpriteText/blob/master/README.md#new-spritetext-text-position-options-. Default is group.userData.optionsSpriteText or no options
  * @param {string} [guiParams.spriteFolder] sprite folder name. Default is lang.spriteText
  * @returns {GUI} sprite folder
  */
@@ -395,8 +395,13 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	const cookieName = guiParams.cookieName || guiParams.spriteFolder;
 	const cookie = guiParams.cookie || new Cookie.defaultCookie();
 	cookie.getObject( cookieName, options, options );
-	if ( ( group instanceof THREE.Sprite !== true ) && ( group.userData.optionsSpriteText === undefined ) )
-		group.userData.optionsSpriteText = options;
+	if ( group instanceof THREE.Sprite !== true ) {
+
+		if ( group.userData.optionsSpriteText === undefined )
+			group.userData.optionsSpriteText = options;
+		else if ( guiParams.options !== undefined ) console.warn( 'SpriteTextGui: duplicate group.userData.optionsSpriteText' );
+
+	}
 
 	//updateSpriteText function is repeatedly called during restore settings to default values.
 	//See fSpriteText.userData.restore() function for details.

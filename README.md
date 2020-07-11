@@ -87,7 +87,7 @@ Adds SpriteText settings folder into [gui](https://github.com/anhr/dat.gui).
 | [guiParams.getLanguageCode] | <code>Function</code> | Default returns the 'en' is English language. | <p>Your custom getLanguageCode() function.</p><p>returns the "primary language" subtag of the language version of the browser.</p><p>Examples: "en" - English language, "ru" Russian.</p><p>See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.</p><p>You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</p>|
 | [guiParams.lang] | <code>object</code> |  | <p>Object with localized language values.</p><p>Example of using of guiParams.lang:</p><p>guiParams = {</p><p></p><p>	getLanguageCode: function() { return 'az'; },</p><p>	lang: { textHeight: 'mətn boyu', languageCode: 'az' },</p><p></p><p>}</p>|
 | [guiParams.parentFolder] | <code>GUI</code> |  | parent folder, returned by [gui.addFolder(name)](https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder).|
-| [guiParams.options] | <code>string</code> |  | See [SpriteText options](https://github.com/anhr/SpriteText/blob/master/README.md#new-spritetext-text-position-options-).|
+| [guiParams.options] | <code>string</code> | group.userData.optionsSpriteText or no options | See [SpriteText options](https://github.com/anhr/SpriteText/blob/master/README.md#new-spritetext-text-position-options-).|
 | [guiParams.spriteFolder] | <code>string</code> |  | sprite folder name. Default is lang.spriteText|
 
  SpriteTextGui returns the GUI SpriteText options folder.
