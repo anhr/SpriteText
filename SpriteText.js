@@ -240,7 +240,7 @@ function updateSpriteTextGroup( group ) {
 			if ( spriteItem.userData.update !== undefined )
 				spriteItem.userData.update( options );
 
-		} else if ( spriteItem instanceof THREE.Group )
+		} //else if ( spriteItem instanceof THREE.Group )
 			updateSpriteTextGroup( spriteItem );
 
 	} );
