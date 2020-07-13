@@ -49,7 +49,7 @@ You can set options for all SpriteText from the group or scene and all child gro
 Options of the child groups is more priority before parent group options.
 Example:
 ```
-//options of the parent group or scene
+//options for all SpriteText on the scene
 scene.userData.optionsSpriteText = {
 
 	fontColor: 'rgb(0, 255, 0)'//green color
@@ -57,7 +57,7 @@ scene.userData.optionsSpriteText = {
 }
 var group = new THREE.Group();
 
-//options of the child group
+//options of the group and all child group
 group.userData.optionsSpriteText = {
 
 	fontColor: 'rgba(255, 255, 225, 0.5)'//white semi opacity color
