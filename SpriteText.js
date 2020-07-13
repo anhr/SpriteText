@@ -213,6 +213,8 @@ var SpriteText = function ( text, position, options ) {
 		sprite.userData.update( options );
 
 	}
+	if ( options.group )
+		options.group.add( sprite );
 	return sprite;
 
 };
