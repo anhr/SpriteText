@@ -88,6 +88,19 @@ var SpriteText = function ( text, position, options ) {
 	sprite.userData.update = function ( optionsUpdate ) {
 
 		optionsUpdate = optionsUpdate || {};
+		var textHeight = optionsUpdate.textHeight || options.textHeight || 0.04;
+		const fov = optionsUpdate.fov || options.fov,
+			sizeAttenuation = optionsUpdate.sizeAttenuation || options.sizeAttenuation || false,
+			rotation = optionsUpdate.rotation || options.rotation || 0,
+			fontFace = optionsUpdate.fontFace || options.fontFace || 'Arial',
+			bold = optionsUpdate.bold || options.bold || false,
+			italic = optionsUpdate.italic || options.italic || false,
+			fontProperties = optionsUpdate.fontProperties || options.fontProperties || '',
+			rect = optionsUpdate.rect || options.rect || {},
+			color = 'rgba(255, 255, 255, 1)',
+			fontColor = optionsUpdate.fontColor || options.fontColor || color,
+			center = _getCenter( optionsUpdate.center || options.center );
+/*		
 		var textHeight = options.textHeight || optionsUpdate.textHeight || 0.04;
 		const fov = options.fov || optionsUpdate.fov,
 			sizeAttenuation = options.sizeAttenuation || optionsUpdate.sizeAttenuation || false,
@@ -100,6 +113,7 @@ var SpriteText = function ( text, position, options ) {
 			color = 'rgba(255, 255, 255, 1)',
 			fontColor = options.fontColor || optionsUpdate.fontColor || color,
 			center = _getCenter( options.center || optionsUpdate.center );
+*/			
 		if ( fov !== undefined )
 			textHeight = fov * textHeight / 50;
 
