@@ -22,12 +22,14 @@ function _getCenter( center ) {
 		new THREE.Vector2( 0, 1 );//Default is left upper corner
 
 }
-
 /**
  * A sprite based text component.
  * @param {string|number} text The text to be displayed on the sprite. You can include a multiline text separated by "\r\n".
  * @param {THREE.Vector3} [position] Position of the text. Default is new THREE.Vector3(0,0,0).
  * @param {object} [options] followed options is available
+ * @param {THREE.Group} [options.group] Parent group of the SpriteText with common options.
+ * See https://github.com/anhr/SpriteText#groupuserdataoptionsspritetext---common-options-for-the-group-of-the-spritetext.
+ * Default is undefined.
  * @param {number} [options.textHeight] The height of the text. Default is 0.04.
  * @param {number} [options.fov] Camera frustum vertical field of view, from bottom to top of view, in degrees.
  * https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera.fov
@@ -65,6 +67,10 @@ var SpriteText = function ( text, position, options ) {
 
 	position = position || new THREE.Vector3( 0, 0, 0 );
 	options = options || {};
+
+	if ( options.group )
+		updateOptions( options.group, options );
+//else console.warn('options.group = ' + options.group );
 
 	const sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
 
