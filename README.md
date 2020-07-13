@@ -26,7 +26,7 @@ Creates a new sprite based text component.
 | text | <code>string or number</code> |  | The text to be displayed on the sprite. You can include a multiline text. Using the "\r\n" character to define line breaks.|
 | position | <code>THREE.Vector3</code> | new THREE.Vector3( 0, 0, 0 ) | Position of the text.|
 | [options] | <code>object</code> | {} | followed options is available: |
-| [options.group] | <code>THREE.Group</code> |  | <p>Parent group of the SpriteText with common options.</p><p>See https://github.com/anhr/SpriteText#groupuserdataoptionsspritetext---common-options-for-the-group-of-the-spritetext.</p> |
+| [options.group] | <code>THREE.Group</code> |  | <p>Parent group of the SpriteText with common options.</p><p>See <a href="https://github.com/anhr/SpriteText#groupuserdataoptionsspritetext---common-options-for-the-group-of-the-spritetext" target="_blank">group.userData.optionsSpriteText</a></p> |
 | [options.textHeight] | <code>number</code> | 0.1 | The height of the text.|
 | [options.sizeAttenuation] | <code>boolean</code> | false | Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only). See [sizeAttenuation](https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation) for details.|
 | [options.rotation] | <code>number</code> | 0 | The rotation of the sprite in radians. See [rotation](https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.rotation) for details.|
