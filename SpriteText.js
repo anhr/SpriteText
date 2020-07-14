@@ -84,7 +84,6 @@ var SpriteText = function ( text, position, options ) {
 	const fontSize = 90;
 	const context = canvas.getContext( '2d' );
 
-//	var angleDistance = 1;
 	sprite.userData.update = function ( optionsUpdate ) {
 
 		optionsUpdate = optionsUpdate || {};
@@ -298,7 +297,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	guiParams = guiParams || {};
 	const options = guiParams.options || group.userData.optionsSpriteText || {},
-//		optionsCookie = {},
 		optionsDefault = JSON.parse( JSON.stringify( options ) );
 	Object.freeze( optionsDefault );
 
@@ -481,23 +479,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	const textHeight = 'textHeight';
 	if ( options.hasOwnProperty( textHeight ) && ( options[textHeight] !== undefined ) ) {
 
-/*
-		var scaleController = fSpriteText.add( new ScaleController( function ( customController, action ) {
-
-			var value = action( controller.getValue(), scaleController.getValue() );
-			controller.setValue( value );
-			updateSpriteText();
-
-		},
-			{
-
-				getLanguageCode: guiParams.getLanguageCode,
-				settings: guiParams.settings,
-
-			} ) ).onChange( function ( value ) { scaleController.zoomMultiplier = value; } );
-		var controller = dat.controllerZeroStep( fSpriteText, options, textHeight, function ( value ) { updateSpriteText(); } );
-		dat.controllerNameAndTitle( controller, lang.textHeight, lang.textHeightTitle );
-*/
 		ScaleControllers( fSpriteText, options, textHeight, function() { updateSpriteText(); }, {
 
 			text: lang.textHeight, textTitle: lang.textHeightTitle,
@@ -511,7 +492,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	//font faces
 	if ( options.fontFaces !== undefined ) {
 
-//		optionsCookie['fontFace'] = options.fontFace;
 		dat.controllerNameAndTitle(
 			fSpriteText.add( options, 'fontFace', options.fontFaces ).onChange( function ( value ) {
 
@@ -524,7 +504,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	//bold
 	if ( options.hasOwnProperty( 'bold' ) ) {
 
-//		optionsCookie['bold'] = options.bold;
 		dat.controllerNameAndTitle(
 			fSpriteText.add( options, 'bold' ).onChange( function ( value ) {
 
@@ -537,7 +516,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	//italic
 	if ( options.hasOwnProperty( 'italic' ) ) {
 
-//		optionsCookie['italic'] = options.italic;
 		dat.controllerNameAndTitle(
 			fSpriteText.add( options, 'italic' ).onChange( function ( value ) {
 
@@ -651,7 +629,6 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	//font сolor
 	if ( options.hasOwnProperty( 'fontColor' ) ) {
 
-//		optionsCookie['fontColor'] = options.fontColor;
 		dat.controllerNameAndTitle( fSpriteText.addColor( options, 'fontColor' ).onChange( function ( value ) {
 
 			updateSpriteText();
@@ -660,11 +637,10 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	}
 
-	//anchor
+	//anchor. https://threejs.org/docs/index.html#api/en/objects/Sprite.center
 	if ( options.hasOwnProperty( 'center' ) ) {
 
 		options.center = _getCenter( options.center );
-//		optionsCookie['center'] = options.center;
 
 		//anchor folder
 		const fAnchor = fSpriteText.addFolder( 'center' );
