@@ -67,9 +67,10 @@ var SpriteText = function ( text, position, options ) {
 
 	position = position || new THREE.Vector3( 0, 0, 0 );
 	options = options || {};
-
+/*
 	if ( options.group )
 		updateOptions( options.group, options );
+*/		
 //else console.warn('options.group = ' + options.group );
 
 	const sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
@@ -217,7 +218,10 @@ var SpriteText = function ( text, position, options ) {
 		sprite.material.needsUpdate = true;
 
 	};
-	sprite.userData.update();
+	const optionsGroup = {};
+	if ( options.group )
+		updateOptions( options.group, optionsGroup );
+	sprite.userData.update( optionsGroup );
 
 	sprite.userData.updateText = function ( _text ) {
 
