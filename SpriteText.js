@@ -1,18 +1,34 @@
 /**
- * A sprite based text component. Text that always faces towards the camera.
- * @author anhr / https://github.com/anhr/
+ * @module SpriteText
+ * 
+ * A {@link https://threejs.org/docs/index.html#api/en/objects/Sprite|sprite} based text component. Text that always faces towards the camera.
+ *
+ * @author Andrej Hristoliubov. {@link https://anhr.github.io/AboutMe/|AboutMe}
+ *
+ * @copyright 2011 Data Arts Team, Google Creative Lab
+ *
+ * @license under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
 */
 
-import * as THREE from '../../three.js/dev/build/three.module.js';
+//import * as THREE from 'https://threejs.org/build/three.module.js';
+//import * as THREE from '../../three.js/dev/build/three.module.js';//https://github.com/anhr/three.js;//https://github.com/anhr/three.js
+import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
-import { dat } from '../../commonNodeJS/master/dat.module.js';
+import { dat } from '../../commonNodeJS/master/dat.module.js';//https://github.com/anhr/commonNodeJS
+//import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat.module.js';
 
-import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';
+import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';//https://github.com/anhr/commonNodeJS
+//import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/master/ScaleController.js';
+
 //import ScaleController from '../../commonNodeJS/master/ScaleController.js';
 
-import Cookie from '../../cookieNodeJS/master/cookie.js';
-//import cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
+import Cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
+//import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
 
 function _getCenter( center ) {
 
@@ -61,7 +77,7 @@ function _getCenter( center ) {
  * @param {string} [options.rect.borderColor] border color. RGBA object or RGB object or HEX value. Default is same as options.fontColor 'rgba(255, 255, 255, 1)' - white.
  * @param {number} [options.rect.borderThickness] border thickness. Default is 0 - invisible border.
  * @param {number} [options.rect.borderRadius] border corners radius. Default is 0 - no radius.
- * @see Thanks to / https://github.com/vasturiano/three-spritetext
+ * @see Thanks to {@link https://github.com/vasturiano/three-spritetext|three-spritetext}
  */
 var SpriteText = function ( text, position, options ) {
 
