@@ -12,7 +12,7 @@ Uses in my projects:
 ## Quick start
 
 * Create a folder on your localhost named as [folderName].
-* Download [three.js](https://github.com/anhr/three.js) repository into your [folderName]\three.js\dev folder.
+* Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
 * Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
 * Download [cookieNodeJS](https://github.com/anhr/cookieNodeJS) repository into your "[folderName]\cookieNodeJS\master" folder.
 * Download [dat.gui](https://github.com/anhr/dat.gui) repository into your "[folderName]\dat.gui\CustomController" folder.
