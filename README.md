@@ -17,7 +17,7 @@ Uses in my projects:
 * Download [cookieNodeJS](https://github.com/anhr/cookieNodeJS) repository into your "[folderName]\cookieNodeJS\master" folder.
 * Download [dat.gui](https://github.com/anhr/dat.gui) repository into your "[folderName]\dat.gui\CustomController" folder.
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
-* Open http://localhost/[folderName]/SpriteText/master/ for testing of your downloads.
+* Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
 
 The easiest way to use SpriteText in your code is import SpriteText and SpriteTextGui from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
 ```
