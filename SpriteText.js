@@ -20,7 +20,7 @@ import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
 import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
-//import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat.module.js';
+//import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
 
 import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';//https://github.com/anhr/commonNodeJS
 //import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/master/ScaleController.js';
