@@ -19,7 +19,7 @@
 import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
-import { dat } from '../../commonNodeJS/master/dat.module.js';//https://github.com/anhr/commonNodeJS
+import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
 //import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat.module.js';
 
 import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';//https://github.com/anhr/commonNodeJS
@@ -452,6 +452,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 
 		if ( !boUpdateSpriteText )
 			return;
+/*
 		if ( Array.isArray( group ) )
 			group.forEach( function ( spriteItem ) {
 
@@ -465,6 +466,10 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 		} else if ( group instanceof THREE.Sprite )
 			group.userData.update( options );
 		else group.update( options );
+*/
+		updateSpriteTextGroup( group );
+		if ( group.userData.update )
+			group.userData.update( options );
 
 		if ( controllerFont !== undefined )
 			controllerFont.setValue( options.font );
