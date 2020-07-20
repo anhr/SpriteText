@@ -18,7 +18,39 @@
 //import * as THREE from '../../three.js/dev/build/three.module.js';//https://github.com/anhr/three.js;
 import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
+/*
+import { Vector3 } from '../../three.js/dev/src/math/Vector3.js'; 
+import { Vector2 } from '../../three.js/dev/src/math/Vector2.js';
+import { Texture } from '../../three.js/dev/src/textures/Texture.js';
+import { SpriteMaterial } from '../../three.js/dev/src/materials/SpriteMaterial.js';
+import { Sprite } from '../../three.js/dev/src/objects/Sprite.js';
+import { Group } from '../../three.js/dev/src/objects/Group.js';
+import { Scene } from '../../three.js/dev/src/scenes/Scene.js';
+import { LinearFilter } from '../../three.js/dev/src/constants.js';
+*/
+/*
+import { Vector3 } from '/math/Vector3.js';
+import { Vector2 } from '/Vector2.js';
+import { Texture } from '/Texture.js';
+import { SpriteMaterial } from '/SpriteMaterial.js';
+import { Sprite } from '/Sprite.js';
+import { Group } from '/Group.js';
+import { Scene } from '/Scene.js';
+import { LinearFilter } from '/constants.js';
 
+var THREE = {
+
+	Vector3,
+	Vector2,
+	Texture,
+	SpriteMaterial,
+	Sprite,
+	Group,
+	Scene,
+	LinearFilter,
+
+}
+*/
 import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
 //import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
 
