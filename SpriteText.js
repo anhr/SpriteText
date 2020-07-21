@@ -112,6 +112,22 @@ function _getCenter( center ) {
  * @param {number} [options.rect.borderThickness] border thickness. Default is 0 - invisible border.
  * @param {number} [options.rect.borderRadius] border corners radius. Default is 0 - no radius.
  * @see Thanks to {@link https://github.com/vasturiano/three-spritetext|three-spritetext}
+ * @example
+ *
+<script>
+
+	import * as THREE from '../../three.js/dev/build/three.module.js';
+	//import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
+
+	import { SpriteText } from './SpriteText.js';
+
+	// create scene etc
+	...
+
+	scene.add( new SpriteText( 'Sprite text', new THREE.Vector3( -10, -15, 2 ), { textHeight: 3 } ) );
+
+</script>
+*
  */
 var SpriteText = function ( text, position, options ) {
 
