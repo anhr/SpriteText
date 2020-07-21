@@ -23,6 +23,10 @@ The easiest way to use SpriteText in your code is import SpriteText and SpriteTe
 ```
 import { SpriteText, SpriteTextGui, updateSpriteTextGroup } from './SpriteText.js';
 ```
+or
+```
+import { AxesHelper } from 'https://raw.githack.com/anhr/AxesHelper/master/AxesHelper.js';
+```
 
 Now you can use SpriteText and SpriteTextGui in your javascript code. See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/index.html) for details.
 

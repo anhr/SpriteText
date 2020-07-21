@@ -1,5 +1,5 @@
 /**
- * @module SpriteText
+ * @module SpriteText.
  * 
  * A sprite based text component. Text that always faces towards the camera.
  *
@@ -355,7 +355,7 @@ function updateSpriteTextGroup( group ) {
  * Default returns the 'en' is English language.
  * You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';
  * @param {object} [guiParams.lang] Object with localized language values
- * Example of using of guiParams.lang:
+ * @example Using of guiParams.lang:
 guiParams = {
 
 	getLanguageCode: function() { return 'az'; },
