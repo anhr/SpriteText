@@ -312,7 +312,7 @@
 
             
 
-            <td class="description last">Parent group of the SpriteText with common options.See https://github.com/anhr/SpriteText#groupuserdataoptionsspritetext---common-options-for-the-group-of-the-spritetext.Default is undefined.</td>
+            <td class="description last">Parent group of the SpriteText with common options.See <a href="https://github.com/anhr/SpriteText#groupuserdataoptionsspritetext---common-options-for-the-group-of-the-spritetext">common options for the group of the SpriteText</a>.Default is undefined.</td>
         </tr>
 
     
@@ -378,7 +378,7 @@
 
             
 
-            <td class="description last">Camera frustum vertical field of view, from bottom to top of view, in degrees.https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera.fovSet the fov option as camera.fov if you want to see text size is independent from camera.fov. The text height will be calculated as textHeight = fov * textHeight / 50Default is undefined.</td>
+            <td class="description last">Camera frustum vertical field of view, from bottom to top of view, in degrees.<a href="https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera.fov">PerspectiveCamera.fov</a>Set the fov option as camera.fov if you want to see text size is independent from camera.fov. The text height will be calculated as textHeight = fov * textHeight / 50Default is undefined.</td>
         </tr>
 
     
@@ -411,7 +411,7 @@
 
             
 
-            <td class="description last">Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.See https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation</td>
+            <td class="description last">Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.See <a href="https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.sizeAttenuation">SpriteMaterial.sizeAttenuation</a></td>
         </tr>
 
     
@@ -444,7 +444,7 @@
 
             
 
-            <td class="description last">The rotation of the sprite in radians. Default is 0.See https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.rotation</td>
+            <td class="description last">The rotation of the sprite in radians. Default is 0.See <a href="https://threejs.org/docs/index.html#api/en/materials/SpriteMaterial.rotation">SpriteMaterial.rotation</a></td>
         </tr>
 
     
@@ -675,7 +675,7 @@
 
             
 
-            <td class="description last">The text's anchor point.See https://threejs.org/docs/index.html#api/en/objects/Sprite.center	A value of (0.5, 0.5) corresponds to the midpoint of the text.	A value of (0, 0) corresponds to the left lower corner of the text.	A value of (0, 1) corresponds to the left upper corner of the text.	Default is (0, 1).</td>
+            <td class="description last">The text's anchor point.See <a href="https://threejs.org/docs/index.html#api/en/objects/Sprite.center">Sprite.center</a>	A value of (0.5, 0.5) corresponds to the midpoint of the text.	A value of (0, 0) corresponds to the left lower corner of the text.	A value of (0, 1) corresponds to the left upper corner of the text.	Default is (0, 1).</td>
         </tr>
 
     
@@ -1062,7 +1062,7 @@
 
             
 
-            <td class="description last">see https://github.com/anhr/dat.gui for details</td>
+            <td class="description last">see <a href="https://github.com/anhr/dat.gui">dat.gui</a> for details</td>
         </tr>
 
     
@@ -1183,7 +1183,7 @@
 
             
 
-            <td class="description last">Your custom getLanguageCode() function.returns the "primary language" subtag of the language version of the browser.Examples: "en" - English language, "ru" Russian.See the "Syntax" paragraph of RFC 4646 https://tools.ietf.org/html/rfc4646#section-2.1 for details.Default returns the 'en' is English language.You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</td>
+            <td class="description last">Your custom getLanguageCode() function.returns the "primary language" subtag of the language version of the browser.Examples: "en" - English language, "ru" Russian.See the "Syntax" paragraph of RFC 4646 <a href="https://tools.ietf.org/html/rfc4646#section-2.1">rfc4646 2.1 Syntax</a> for details.Default returns the 'en' is English language.You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</td>
         </tr>
 
     
@@ -1255,7 +1255,7 @@ guiParams = {
 
             
 
-            <td class="description last">parent folder, returned by gui.addFolder(name) https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder</td>
+            <td class="description last">parent folder, returned by gui.addFolder(name) <a href="https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder">gui.addFolder(name)</a></td>
         </tr>
 
     
@@ -1288,7 +1288,7 @@ guiParams = {
 
             
 
-            <td class="description last">See SpriteText options https://github.com/anhr/SpriteText/blob/master/README.md#new-spritetext-text-position-options-. Default is group.userData.optionsSpriteText or no options</td>
+            <td class="description last">See SpriteText options. Default is group.userData.optionsSpriteText or no options</td>
         </tr>
 
     
@@ -1369,7 +1369,7 @@ guiParams = {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line348">line 348</a>
+        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line352">line 352</a>
     </li></ul></dd>
     
 
@@ -1422,6 +1422,146 @@ guiParams = {
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="~updateSpriteTextGroup"><span class="type-signature">(inner) </span>updateSpriteTextGroup<span class="signature">(group)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Call updateSpriteTextGroup if you want to update of the options of all SpriteText, added in to group and all child groups
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>group</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">THREE.Group</span>
+|
+
+<span class="param-type">THREE.Scene</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line310">line 310</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
 
     
@@ -1443,7 +1583,7 @@ guiParams = {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Tue Jul 21 2020 08:49:32 GMT+0700 (Красноярск, стандартное время)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Tue Jul 21 2020 09:51:05 GMT+0700 (Красноярск, стандартное время)
 </footer>
 
 <script> prettyPrint(); </script>
