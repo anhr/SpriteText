@@ -348,6 +348,38 @@ guiParams = {
  * @param {string} [guiParams.options] See SpriteText options. Default is group.userData.optionsSpriteText or no options
  * @param {string} [guiParams.spriteFolder] sprite folder name. Default is lang.spriteText
  * @returns {GUI} sprite folder
+ * @example Using of the SpriteTextGui:
+ *
+<script>
+
+	import * as THREE from '../../three.js/dev/build/three.module.js';
+	//import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
+
+	import { dat } from '../../commonNodeJS/master/dat.module.js';
+	import { SpriteText, SpriteTextGui } from './SpriteText.js';
+
+	// create scene etc
+	...
+
+	scene.add( new SpriteText( 'Default SpriteText' ) );
+	var gui = new dat.GUI();
+
+	//Settings for all SpriteText added to scene and child groups
+	SpriteTextGui( gui, scene, {
+
+		getLanguageCode: getLanguageCode,
+		settings: { zoomMultiplier: 1.5, },
+		options: {
+
+			textHeight: 0.1,
+			sizeAttenuation: false,
+
+		}
+
+	} );
+
+</script>
+*
  */
 var SpriteTextGui = function ( gui, group, guiParams ) {
 
