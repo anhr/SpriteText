@@ -25,7 +25,7 @@ import { SpriteText, SpriteTextGui, updateSpriteTextGroup } from './SpriteText.j
 ```
 or
 ```
-import { SpriteText, SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+import { SpriteText, SpriteTextGui, updateSpriteTextGroup } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
 ```
 
 Now you can use SpriteText and SpriteTextGui in your javascript code. See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/index.html) for details.
