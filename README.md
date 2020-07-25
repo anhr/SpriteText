@@ -11,7 +11,29 @@ Uses in my projects:
 
 ## Quick start
 
+### SpriteText
+
 * Create a folder on your localhost named as [folderName].
+* Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
+* Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
+* Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
+
+The easiest way to use SpriteText in your code is import SpriteText from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
+```
+import { SpriteText } from './SpriteText.js';
+```
+or
+```
+import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+```
+
+Now you can use SpriteText in your javascript code. See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/SpriteText/index.html) for details.
+
+### SpriteTextGui
+
+Use SpriteTextGui for manual change settings of the SpriteText.
+
+* Use folder on your localhost named as [folderName]. See SpriteText above.
 * Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
 * Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
 * Download [cookieNodeJS](https://github.com/anhr/cookieNodeJS) repository into your "[folderName]\cookieNodeJS\master" folder.
@@ -19,16 +41,16 @@ Uses in my projects:
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
 * Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
 
-The easiest way to use SpriteText in your code is import SpriteText and SpriteTextGui from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
+The easiest way to use SpriteTextGui in your code is import SpriteTextGui from SpriteTextGui.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
 ```
-import { SpriteText, SpriteTextGui, updateSpriteTextGroup } from './SpriteText.js';
+import { SpriteTextGui } from './SpriteTextGui.js';
 ```
 or
 ```
-import { SpriteText, SpriteTextGui, updateSpriteTextGroup } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
 ```
 
-Now you can use SpriteText and SpriteTextGui in your javascript code. See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/index.html) for details.
+Now you can use SpriteTextGui in your javascript code. See [SpriteTextGui API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/SpriteTextGui/index.html) for details.
 
 ### group.userData.optionsSpriteText - common options for the group of the SpriteText
 You can set options for all SpriteText from the group or scene and all child groups.

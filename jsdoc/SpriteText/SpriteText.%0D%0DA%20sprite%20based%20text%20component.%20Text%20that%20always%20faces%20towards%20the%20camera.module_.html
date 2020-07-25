@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: SpriteTextA sprite based text component. Text that always faces towards the camera.</title>
+    <title>JSDoc: Module: SpriteText.A sprite based text component. Text that always faces towards the camera.</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: SpriteTextA sprite based text component. Text that always faces towards the camera.</h1>
+    <h1 class="page-title">Module: SpriteText.A sprite based text component. Text that always faces towards the camera.</h1>
 
     
 
@@ -956,7 +956,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line132">line 132</a>
+        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line81">line 81</a>
     </li></ul></dd>
     
 
@@ -1016,7 +1016,7 @@
     
 
     
-    <h4 class="name" id="~SpriteTextGui"><span class="type-signature">(inner) </span>SpriteTextGui<span class="signature">(gui, group, guiParams<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {GUI}</span></h4>
+    <h4 class="name" id="~SpriteText.getCenter"><span class="type-signature">(inner) </span>SpriteText.getCenter<span class="signature">(center)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1024,7 +1024,7 @@
 
 
 <div class="description">
-    Adds SpriteText settings folder into gui.
+    Returns <a href="https://threejs.org/docs/index.html#api/en/objects/Sprite.center">center</a>
 </div>
 
 
@@ -1048,8 +1048,6 @@
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
         
 
@@ -1062,297 +1060,23 @@
 
         <tr>
             
-                <td class="name"><code>gui</code></td>
+                <td class="name"><code>center</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">GUI</span>
+<span class="param-type">THREE.Vector2</span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
 
-            <td class="description last">see <a href="https://github.com/anhr/dat.gui">dat.gui</a> for details</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>group</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">THREE.Group</span>
-|
-
-<span class="param-type">THREE.Scene</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>guiParams</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Followed parameters is allowed. Default is no parameters
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>getLanguageCode</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Your custom getLanguageCode() function.returns the "primary language" subtag of the language version of the browser.Examples: "en" - English language, "ru" Russian.See the "Syntax" paragraph of RFC 4646 <a href="https://tools.ietf.org/html/rfc4646#section-2.1">rfc4646 2.1 Syntax</a> for details.Default returns the 'en' is English language.You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>lang</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Object with localized language valuesExample of using of guiParams.lang:
-guiParams = {
-
-	getLanguageCode: function() { return 'az'; },
-	lang: { textHeight: 'mətn boyu', languageCode: 'az' },
-
-}</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>parentFolder</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">GUI</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">parent folder, returned by gui.addFolder(name) <a href="https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder">gui.addFolder(name)</a></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>options</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">See SpriteText options. Default is group.userData.optionsSpriteText or no options</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>spriteFolder</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">sprite folder name. Default is lang.spriteText</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -1393,7 +1117,7 @@ guiParams = {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line402">line 402</a>
+        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line257">line 257</a>
     </li></ul></dd>
     
 
@@ -1422,60 +1146,14 @@ guiParams = {
 
         
 <div class="param-desc">
-    sprite folder
+    center
 </div>
 
 
 
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">GUI</span>
-
-
-    </dd>
-</dl>
-
     
 
 
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>Using of the SpriteTextGui:
-&lt;script>
-
-	import * as THREE from '../../three.js/dev/build/three.module.js';
-	//import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
-
-	import { dat } from '../../commonNodeJS/master/dat.module.js';
-	import { SpriteText, SpriteTextGui } from './SpriteText.js';
-
-	// create scene etc
-	...
-
-	scene.add( new SpriteText( 'Default SpriteText' ) );
-	var gui = new dat.GUI();
-
-	//Settings for all SpriteText added to scene and child groups
-	SpriteTextGui( gui, scene, {
-
-		getLanguageCode: getLanguageCode,
-		settings: { zoomMultiplier: 1.5, },
-		options: {
-
-			textHeight: 0.1,
-			sizeAttenuation: false,
-
-		}
-
-	} );
-
-&lt;/script></code></pre>
 
 
 
@@ -1485,7 +1163,7 @@ guiParams = {
     
 
     
-    <h4 class="name" id="~updateSpriteTextGroup"><span class="type-signature">(inner) </span>updateSpriteTextGroup<span class="signature">(group)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~SpriteText.updateSpriteTextGroup"><span class="type-signature">(inner) </span>SpriteText.updateSpriteTextGroup<span class="signature">(group)</span><span class="type-signature"></span></h4>
     
 
     
@@ -1589,7 +1267,7 @@ guiParams = {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line328">line 328</a>
+        <a href="SpriteText.js.html">SpriteText.js</a>, <a href="SpriteText.js.html#line291">line 291</a>
     </li></ul></dd>
     
 
@@ -1635,13 +1313,13 @@ guiParams = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="SpriteText%250D%250DA%2520sprite%2520based%2520text%2520component.%2520Text%2520that%2520always%2520faces%2520towards%2520the%2520camera.module_.html">SpriteTextA sprite based text component. Text that always faces towards the camera.</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="SpriteText.%250D%250DA%2520sprite%2520based%2520text%2520component.%2520Text%2520that%2520always%2520faces%2520towards%2520the%2520camera.module_.html">SpriteText.A sprite based text component. Text that always faces towards the camera.</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Tue Jul 21 2020 10:34:42 GMT+0700 (Красноярск, стандартное время)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.4</a> on Sun Jul 26 2020 03:20:15 GMT+0700 (Красноярск, стандартное время)
 </footer>
 
 <script> prettyPrint(); </script>

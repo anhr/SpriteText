@@ -8,4 +8,24 @@ Generating a website:
 	d:
 	cd "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc"
 	npm install -g jsdoc
+	/////////////////////////////////////////////////////////////
+	//SpriteText doc
+
+	//remove all files from "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc\out"
+
 	jsdoc "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\SpriteText.js"
+
+	//copy all files from "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc\out"
+	//to "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\jsdoc\SpriteText"
+	/////////////////////////////////////////////////////////////
+
+	/////////////////////////////////////////////////////////////
+	//SpriteTextGui doc
+
+	//remove all files from "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc\out"
+
+	jsdoc "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\SpriteTextGui.js"
+
+	//copy all files from "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc\out"
+	//to "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\jsdoc\SpriteTextGui"
+	/////////////////////////////////////////////////////////////

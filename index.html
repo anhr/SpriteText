@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>sprite text. three.js webgl</title>
@@ -21,33 +21,36 @@
 		//import * as THREE from '../../three.js/dev/build/three.module.js';
 		//import * as THREE from 'https://threejs.org/build/three.module.js';
 		//import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
-		//import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
-		import { THREE } from 'https://raw.githack.com/anhr/commonNodeJS/master/three.js';
+		import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
+		//import { THREE } from 'https://raw.githack.com/anhr/commonNodeJS/master/three.js';
 
-		//import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
-		import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
+		import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
+		//import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
 
-//		import { SpriteText, SpriteTextGui } from './build/SpriteText.module.js';
-		import { SpriteText, SpriteTextGui } from './SpriteText.js';
-		//import { SpriteText, SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+//		import { SpriteText } from './build/SpriteText.module.js';
+		import { SpriteText } from './SpriteText.js';
+		//import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
 
-		//import { OrbitControls } from '../../three.js/dev/examples/jsm/controls/OrbitControls.js';//https://github.com/anhr/three.js
-		import { OrbitControls } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/controls/OrbitControls.js';
+		import { SpriteTextGui } from './SpriteTextGui.js';
+		//import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
 
-		//import { ConvexBufferGeometry } from '../../three.js/dev/examples/jsm/geometries/ConvexGeometry.js';//https://github.com/anhr/three.js
-		import { ConvexBufferGeometry } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/geometries/ConvexGeometry.js';
+		import { OrbitControls } from '../../three.js/dev/examples/jsm/controls/OrbitControls.js';//https://github.com/anhr/three.js
+		//import { OrbitControls } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/controls/OrbitControls.js';
 
-		//import cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
-		import cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
+		import { ConvexBufferGeometry } from '../../three.js/dev/examples/jsm/geometries/ConvexGeometry.js';//https://github.com/anhr/three.js
+		//import { ConvexBufferGeometry } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/geometries/ConvexGeometry.js';
 
-		//import { getLanguageCode } from '../../commonNodeJS/master/lang.js';//https://github.com/anhr/commonNodeJS
-		import { getLanguageCode } from 'https://raw.githack.com/anhr/commonNodeJS/master/lang.js';
+		import cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
+		//import cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
+
+		import { getLanguageCode } from '../../commonNodeJS/master/lang.js';//https://github.com/anhr/commonNodeJS
+		//import { getLanguageCode } from 'https://raw.githack.com/anhr/commonNodeJS/master/lang.js';
 
 		//import { StereoEffect, spatialMultiplexsIndexs } from '../../myThreejs/master/Examples/jsm/effects/StereoEffect.js';//https://github.com/anhr/myThreejs
 		//import { StereoEffect, spatialMultiplexsIndexs } from 'https://raw.githack.com/anhr/myThreejs/master/Examples/jsm/effects/StereoEffect.js';
 
-		//import { WEBGL } from '../../three.js/dev/examples/jsm/WebGL.js';//https://github.com/anhr/three.js
-		import { WEBGL } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/WebGL.js';
+		import { WEBGL } from '../../three.js/dev/examples/jsm/WebGL.js';//https://github.com/anhr/three.js
+		//import { WEBGL } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/WebGL.js';
 
 		if ( WEBGL.isWebGLAvailable() === false ) {
 
