@@ -33,7 +33,7 @@ Now you can use SpriteText in your javascript code. See [SpriteText API](https:/
 
 Use SpriteTextGui for manual change settings of the SpriteText.
 
-* Use folder on your localhost named as [folderName]. See SpriteText above.
+* Use folder on your localhost named as [folderName]. See [SpriteText](https://github.com/anhr/SpriteText#spritetext-1) above.
 * Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
 * Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
 * Download [cookieNodeJS](https://github.com/anhr/cookieNodeJS) repository into your "[folderName]\cookieNodeJS\master" folder.
@@ -77,18 +77,8 @@ scene.add( new SpriteText( 'Scene' ) );//green color of the font
 group.add( new SpriteText( 'Group' ) );//white semi opacity color of the font
 ```
 
-### updateSpriteTextGroup( group )
-
-Call updateSpriteTextGroup if you want to update of the options of all SpriteText, added in to group and all child groups
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| group | <code>THREE.Group or THREE.Scene</code> |  | group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.|
-
-### Restore sprite settings to default.
-
-Please use the userData.restore() function of the folder that was returned from the SpriteTextGui(...) function.
-
-Example
+### folder.userData.restore() - Restore group.userData.optionsSpriteText to default values.
+Example:
 ```
 options = {
 
@@ -108,7 +98,7 @@ const fSpriteTextAll = SpriteTextGui( gui, scene, {
 options.textHeight = 0.2;
 
 //update of the options of all SpriteText, added in to group and all child groups
-updateSpriteTextGroup( group );
+SpriteText.updateSpriteTextGroup( group );
 
 //To do something...
 

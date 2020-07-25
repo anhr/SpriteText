@@ -289,11 +289,38 @@ function updateOptions( group, options ) {
 }
 
 /**
- * Call updateSpriteTextGroup if you want to update of the options of all SpriteText, added in to group and all child groups
+ * Call SpriteText.updateSpriteTextGroup if you want to update of the options of all SpriteText, added in to group and all child groups
  * @function SpriteText.
  * updateSpriteTextGroup
  * @param {THREE.Group|THREE.Scene} group group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.
- */
+ * @example
+<script>
+	options = {
+
+		textHeight: 0.1,
+		sizeAttenuation: false,
+
+	}
+	const fSpriteTextAll = SpriteTextGui( gui, scene, {
+
+		getLanguageCode: getLanguageCode,
+		settings: { zoomMultiplier: 1.5, },
+		options: options
+
+	} );
+
+	//Change of the text height
+	options.textHeight = 0.2;
+
+	//update of the options of all SpriteText, added in to group and all child groups
+	SpriteText.updateSpriteTextGroup( group );
+
+	//To do something...
+
+	//Restore options.textHeight to 0.1
+	fSpriteTextAll.userData.restore();
+</script>
+*/
 SpriteText.updateSpriteTextGroup = function( group ) {
 
 	group.children.forEach( function ( spriteItem ) {
