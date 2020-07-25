@@ -15,6 +15,7 @@ Uses in my projects:
 
 * Create a folder on your localhost named as [folderName].
 * Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
+* Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
 * Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
 
