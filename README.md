@@ -33,14 +33,6 @@ Now you can use SpriteText in your javascript code. See [SpriteText API](https:/
 
 Use SpriteTextGui for manual change settings of the SpriteText.
 
-* Use folder on your localhost named as [folderName]. See [SpriteText](https://github.com/anhr/SpriteText#spritetext-1) above.
-* Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
-* Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
-* Download [cookieNodeJS](https://github.com/anhr/cookieNodeJS) repository into your "[folderName]\cookieNodeJS\master" folder.
-* Download [dat.gui](https://github.com/anhr/dat.gui) repository into your "[folderName]\dat.gui\CustomController" folder.
-* Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
-* Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
-
 The easiest way to use SpriteTextGui in your code is import SpriteTextGui from SpriteTextGui.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
 ```
 import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
@@ -48,8 +40,8 @@ import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/Sp
 or
 
 * Use folder on your localhost named as [folderName]. See [SpriteText](https://github.com/anhr/SpriteText#spritetext-1) above.
-* Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
-* Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
+* Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
+* Open http://localhost/[folderName]/SpriteText/master/Examples/SpriteTextGui.html for testing of your downloads.
 
 ```
 import { SpriteTextGui } from './SpriteTextGui.js';
