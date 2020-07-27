@@ -212,9 +212,11 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 	}
 
 	guiParams.spriteFolder = guiParams.spriteFolder || lang.spriteText;
-	const cookieName = guiParams.cookieName || guiParams.spriteFolder;
-	const cookie = guiParams.cookie || new Cookie.defaultCookie();
+	const cookieName = guiParams.cookieName || guiParams.spriteFolder,
+		cookie = guiParams.cookie || new Cookie.defaultCookie(),
+		optionsGroup = options.group;
 	cookie.getObject( cookieName, options, options );
+	options.group = optionsGroup;
 	if ( group instanceof THREE.Sprite !== true ) {
 
 		if ( group.userData.optionsSpriteText === undefined )
@@ -248,7 +250,7 @@ var SpriteTextGui = function ( gui, group, guiParams ) {
 */
 		SpriteText.updateSpriteTextGroup( group );
 		if ( group.userData.update )
-			group.userData.update( options );
+			group.userData.update();// options );
 
 		if ( controllerFont !== undefined )
 			controllerFont.setValue( options.font );

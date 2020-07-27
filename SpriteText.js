@@ -18,7 +18,7 @@
 
 //import * as THREE from 'https://threejs.org/build/three.module.js';
 //import * as THREE from '../../three.js/dev/build/three.module.js';//https://github.com/anhr/three.js;
-import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
+//import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
 /**
@@ -80,6 +80,12 @@ import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/
  */
 var SpriteText = function ( text, position, options ) {
 
+	if ( typeof THREE === "undefined" ) {
+
+		console.error( 'SpriteText: Please call SpriteText.setTHREE( THREE ) first.' );
+		return;
+		
+	}
 	position = position || new THREE.Vector3( 0, 0, 0 );
 	options = options || {};
 /*
@@ -100,9 +106,16 @@ var SpriteText = function ( text, position, options ) {
 	const fontSize = 90;
 	const context = canvas.getContext( '2d' );
 
-	sprite.userData.update = function ( optionsUpdate ) {
+	sprite.userData.update = function ( /*optionsUpdate*/ ) {
 
-		optionsUpdate = optionsUpdate || {};
+//		optionsUpdate = optionsUpdate || {};
+		const optionsUpdate = {};
+		if ( sprite.parent )
+			updateOptions( sprite.parent, optionsUpdate );
+/*		
+		if ( options.group )
+			updateOptions( options.group, optionsUpdate );
+*/			
 /*
 		var textHeight = optionsUpdate.textHeight || options.textHeight || 0.04;
 		const fov = optionsUpdate.fov || options.fov,
@@ -233,10 +246,13 @@ var SpriteText = function ( text, position, options ) {
 		sprite.material.needsUpdate = true;
 
 	};
+/*	
 	const optionsGroup = {};
 	if ( options.group )
 		updateOptions( options.group, optionsGroup );
 	sprite.userData.update( optionsGroup );
+*/	
+	sprite.userData.update();
 
 	sprite.userData.updateText = function ( _text ) {
 
@@ -253,6 +269,15 @@ var SpriteText = function ( text, position, options ) {
 	return sprite;
 
 };
+
+var THREE;
+/**
+ * set THREE
+ * @function SpriteText.
+ * setTHREE
+ * @param {THREE} {@link https://github.com/anhr/three.js|THREE}
+ */
+SpriteText.setTHREE = function ( _THREE ) { THREE = _THREE; }
 
 /**
  * Returns {@link https://threejs.org/docs/index.html#api/en/objects/Sprite.center|center}
@@ -327,10 +352,14 @@ SpriteText.updateSpriteTextGroup = function( group ) {
 
 		if ( spriteItem instanceof THREE.Sprite ) {
 
+/*
 			var options = {};
 			updateOptions( group, options );
 			if ( spriteItem.userData.update !== undefined )
 				spriteItem.userData.update( options );
+*/				
+			if ( spriteItem.userData.update !== undefined )
+				spriteItem.userData.update();
 
 		} //else if ( spriteItem instanceof THREE.Group )
 			SpriteText.updateSpriteTextGroup( spriteItem );
