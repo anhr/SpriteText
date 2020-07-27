@@ -22,19 +22,19 @@
 //import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
-//import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
-import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
+import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
+//import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
 
-//import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';//https://github.com/anhr/commonNodeJS
-import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/master/ScaleController.js';
+import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';//https://github.com/anhr/commonNodeJS
+//import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/master/ScaleController.js';
 
 //import ScaleController from '../../commonNodeJS/master/ScaleController.js';
 
-//import Cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
-import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
+import Cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
+//import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
 
-//import { SpriteText } from './SpriteText.js';
-import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+import { SpriteText } from './SpriteText.js';
+//import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
 
 /**
  * Adds SpriteText settings folder into dat.gui.
