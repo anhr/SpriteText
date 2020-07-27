@@ -44,7 +44,7 @@ import { SpriteText } from './SpriteText.js';
  * @param {Function} [guiParams.getLanguageCode] Your custom getLanguageCode() function.
  * returns the "primary language" subtag of the language version of the browser.
  * Examples: "en" - English language, "ru" Russian.
- * See the "Syntax" paragraph of RFC 4646 {@link https://tools.ietf.org/html/rfc4646#section-2.1|rfc4646 2.1 Syntax} for details.
+ * See the {@link https://tools.ietf.org/html/rfc4646#section-2.1|rfc4646 2.1 Syntax} for details.
  * Default returns the 'en' is English language.
  * You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';
  * @param {object} [guiParams.lang] Object with localized language values
@@ -55,7 +55,7 @@ guiParams = {
 	lang: { textHeight: 'mətn boyu', languageCode: 'az' },
 
 }
- * @param {GUI} [guiParams.parentFolder] parent folder, returned by gui.addFolder(name) {@link https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder|gui.addFolder(name)}
+ * @param {GUI} [guiParams.parentFolder] parent folder, returned by {@link https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder|gui.addFolder(name)}
  * @param {string} [guiParams.options] See SpriteText options. Default is group.userData.optionsSpriteText or no options
  * @param {string} [guiParams.spriteFolder] sprite folder name. Default is lang.spriteText
  * @returns {GUI} sprite folder
