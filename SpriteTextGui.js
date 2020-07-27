@@ -76,6 +76,8 @@ guiParams = {
 	import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
 	//import { SpriteTextGui } from '../SpriteTextGui.js';
 		
+	SpriteText.setTHREE( THREE );
+
 	// create scene etc
 	...
 
