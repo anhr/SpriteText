@@ -20,6 +20,7 @@ import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/Sprit
 or
 
 * Create a folder on your localhost named as [folderName].
+* Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
 * Open http://localhost/[folderName]/SpriteText/master/Examples/SpriteText.html for testing of your downloads.
 
@@ -33,15 +34,13 @@ Now you can use SpriteText in your javascript code. See [SpriteText API](https:/
 
 Use SpriteTextGui for manual change settings of the SpriteText.
 
-The easiest way to use SpriteTextGui in your code is import SpriteTextGui from SpriteTextGui.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/Examples/SpriteTextGui.html)
-```
-import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
-```
-or
-
 * Use folder on your localhost named as [folderName]. See [SpriteText](https://github.com/anhr/SpriteText#spritetext-1) above.
+* Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
+* Download [dat.gui](https://github.com/anhr/dat.gui) repository into your "[folderName]\dat.gui\CustomController" folder.
+* Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
+* Download [cookieNodeJS](https://github.com/anhr/cookieNodeJS) repository into your "[folderName]\cookieNodeJS\master" folder.
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
-* Open http://localhost/[folderName]/SpriteText/master/Examples/SpriteTextGui.html for testing of your downloads.
+* Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
 
 ```
 import { SpriteTextGui } from './SpriteTextGui.js';
