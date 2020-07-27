@@ -33,7 +33,7 @@ Now you can use SpriteText in your javascript code. See [SpriteText API](https:/
 
 Use SpriteTextGui for manual change settings of the SpriteText.
 
-The easiest way to use SpriteTextGui in your code is import SpriteTextGui from SpriteTextGui.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
+The easiest way to use SpriteTextGui in your code is import SpriteTextGui from SpriteTextGui.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/Examples/SpriteTextGui.html)
 ```
 import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
 ```
