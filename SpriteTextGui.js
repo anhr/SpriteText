@@ -33,8 +33,8 @@ import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/mast
 //import Cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
 import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
 
-import { SpriteText } from './SpriteText.js';
-//import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+//import { SpriteText } from './SpriteText.js';
+import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
 
 /**
  * Adds SpriteText settings folder into dat.gui.
