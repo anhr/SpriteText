@@ -3,7 +3,7 @@
 A [sprite](https://threejs.org/docs/index.html#api/en/objects/Sprite) based text component. SpriteText is a text that always faces towards the camera.
 
 I use SpriteText in my [three.js](https://threejs.org/) projects for displaying of the text in the canvas.
-[Example](https://raw.githack.com/anhr/SpriteText/master/).
+[Example](https://raw.githack.com/anhr/SpriteText/master/Examples/SpriteText.html).
 
 Uses in my projects:
  * [AxesHelper](https://github.com/anhr/AxesHelper)
@@ -13,19 +13,18 @@ Uses in my projects:
 
 ### SpriteText
 
-* Create a folder on your localhost named as [folderName].
-* Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
-* Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
-* Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
-* Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
-
-The easiest way to use SpriteText in your code is import SpriteText from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
-```
-import { SpriteText } from './SpriteText.js';
-```
-or
+The easiest way to use SpriteText in your code is import SpriteText from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/Examples/SpriteText.html)
 ```
 import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+```
+or
+
+* Create a folder on your localhost named as [folderName].
+* Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
+* Open http://localhost/[folderName]/SpriteText/master/Examples/SpriteText.html for testing of your downloads.
+
+```
+import { SpriteText } from './SpriteText.js';
 ```
 
 Now you can use SpriteText in your javascript code. See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/SpriteText/index.html) for details.
@@ -44,11 +43,16 @@ Use SpriteTextGui for manual change settings of the SpriteText.
 
 The easiest way to use SpriteTextGui in your code is import SpriteTextGui from SpriteTextGui.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/)
 ```
-import { SpriteTextGui } from './SpriteTextGui.js';
+import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
 ```
 or
+
+* Use folder on your localhost named as [folderName]. See [SpriteText](https://github.com/anhr/SpriteText#spritetext-1) above.
+* Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
+* Open http://localhost/[folderName]/SpriteText/master/index.html for testing of your downloads.
+
 ```
-import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
+import { SpriteTextGui } from './SpriteTextGui.js';
 ```
 
 Now you can use SpriteTextGui in your javascript code. See [SpriteTextGui API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/SpriteTextGui/index.html) for details.

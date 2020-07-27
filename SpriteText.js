@@ -65,10 +65,14 @@
  *
 <script>
 
-	import * as THREE from '../../three.js/dev/build/three.module.js';
+	import * as THREE from 'https://threejs.org/build/three.module.js';
+	//import * as THREE from '../../three.js/dev/build/three.module.js';
 	//import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
-	import { SpriteText } from './SpriteText.js';
+	import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+	//import { SpriteText } from './SpriteText.js';
+
+	SpriteText.setTHREE( THREE );
 
 	// create scene etc
 	...
@@ -275,9 +279,17 @@ var THREE;
  * set THREE
  * @function SpriteText.
  * setTHREE
- * @param {THREE} {@link https://github.com/anhr/three.js|THREE}
+ * @param {THREE} THREE {@link https://github.com/anhr/three.js|THREE}
  */
 SpriteText.setTHREE = function ( _THREE ) { THREE = _THREE; }
+
+/**
+ * get THREE
+ * @function SpriteText.
+ * getTHREE
+ * @returns {@link https://github.com/anhr/three.js|THREE}
+ */
+SpriteText.getTHREE = function () { return THREE; }
 
 /**
  * Returns {@link https://threejs.org/docs/index.html#api/en/objects/Sprite.center|center}

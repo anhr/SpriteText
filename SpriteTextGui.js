@@ -19,19 +19,19 @@
 
 //import * as THREE from 'https://threejs.org/build/three.module.js';
 //import * as THREE from '../../three.js/dev/build/three.module.js';//https://github.com/anhr/three.js;
-import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
+//import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
-import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
-//import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
+//import { dat } from '../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
+import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
 
-import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';//https://github.com/anhr/commonNodeJS
-//import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/master/ScaleController.js';
+//import { ScaleControllers } from '../../commonNodeJS/master/ScaleController.js';//https://github.com/anhr/commonNodeJS
+import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/master/ScaleController.js';
 
 //import ScaleController from '../../commonNodeJS/master/ScaleController.js';
 
-import Cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
-//import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
+//import Cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
+import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
 
 import { SpriteText } from './SpriteText.js';
 //import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
@@ -63,12 +63,19 @@ guiParams = {
  *
 <script>
 
-	import * as THREE from '../../three.js/dev/build/three.module.js';
+	import * as THREE from 'https://threejs.org/build/three.module.js';
+	//import * as THREE from '../../three.js/dev/build/three.module.js';
 	//import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
 
-	import { dat } from '../../commonNodeJS/master/dat.module.js';
-	import { SpriteText, SpriteTextGui } from './SpriteText.js';
+	import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
+	//import { dat } from '../../commonNodeJS/master/dat.module.js';
 
+	import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+	//import { SpriteText } from '../SpriteText.js';
+
+	import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
+	//import { SpriteTextGui } from '../SpriteTextGui.js';
+		
 	// create scene etc
 	...
 
@@ -94,6 +101,7 @@ guiParams = {
  */
 var SpriteTextGui = function ( gui, group, guiParams ) {
 
+	const THREE = SpriteText.getTHREE();
 	guiParams = guiParams || {};
 	const options = guiParams.options || group.userData.optionsSpriteText || {},
 		optionsDefault = JSON.parse( JSON.stringify( options ) );
