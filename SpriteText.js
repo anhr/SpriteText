@@ -116,10 +116,8 @@ var SpriteText = function ( text, position, options ) {
 		const optionsUpdate = {};
 		if ( sprite.parent )
 			updateOptions( sprite.parent, optionsUpdate );
-/*		
-		if ( options.group )
+		else if ( options.group )
 			updateOptions( options.group, optionsUpdate );
-*/			
 /*
 		var textHeight = optionsUpdate.textHeight || options.textHeight || 0.04;
 		const fov = optionsUpdate.fov || options.fov,

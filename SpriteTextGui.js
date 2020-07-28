@@ -58,6 +58,8 @@ guiParams = {
  * @param {GUI} [guiParams.parentFolder] parent folder, returned by {@link https://github.com/dataarts/dat.gui/blob/master/API.md#GUI+addFolder|gui.addFolder(name)}
  * @param {string} [guiParams.options] See SpriteText options. Default is group.userData.optionsSpriteText or no options
  * @param {string} [guiParams.spriteFolder] sprite folder name. Default is lang.spriteText
+ * @param {Cookie} [guiParams.cookie] Your custom cookie function for saving and loading of the SpriteText settings. Default cookie is not saving settings.
+ * @param {string} [guiParams.cookieName] Name of the cookie. Default is guiParams.spriteFolder.
  * @returns {GUI} sprite folder
  * @example Using of the SpriteTextGui:
  *
