@@ -104,6 +104,12 @@ guiParams = {
 var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	const THREE = SpriteText.getTHREE();
+	if ( !THREE ) {
+
+		console.error( 'SpriteTextGui: THREE = ' + THREE );
+		return;
+		
+	}
 	guiParams = guiParams || {};
 	const options = guiParams.options || group.userData.optionsSpriteText || {},
 		optionsDefault = JSON.parse( JSON.stringify( options ) );
