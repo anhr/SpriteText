@@ -2,7 +2,7 @@
  * @module SpriteTextGui.
  * @description Adds SpriteText settings folder into {@link https://github.com/anhr/dat.gui|dat.gui}.
  * @see {@link https://github.com/anhr/SpriteText|SpriteText}
- *
+ * 
  * @author Andrej Hristoliubov. {@link https://anhr.github.io/AboutMe/|AboutMe}
  *
  * @copyright 2011 Data Arts Team, Google Creative Lab
@@ -31,11 +31,10 @@ import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/mast
 import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
 
 //import { SpriteText } from './SpriteText.js';
-//import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
 
 /**
  * Adds SpriteText settings folder into dat.gui.
- * @param {SpriteText} SpriteText A sprite based text component module.
  * @param {GUI} gui see {@link https://github.com/anhr/dat.gui|dat.gui} for details
  * @param {THREE.Group|THREE.Scene} group group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect
  * @param {object} [guiParams] Followed parameters is allowed. Default is no parameters
@@ -75,7 +74,7 @@ guiParams = {
 
 	import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
 	//import { SpriteTextGui } from '../SpriteTextGui.js';
-
+		
 	SpriteText.setTHREE( THREE );
 
 	// create scene etc
@@ -101,14 +100,14 @@ guiParams = {
 </script>
 *
  */
-export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
+var SpriteTextGui = function ( gui, group, guiParams ) {
 
 	const THREE = SpriteText.getTHREE();
 	if ( !THREE ) {
 
 		console.error( 'SpriteTextGui: THREE = ' + THREE );
 		return;
-
+		
 	}
 	guiParams = guiParams || {};
 	const options = guiParams.options || group.userData.optionsSpriteText || {},
@@ -249,21 +248,21 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 
 		if ( !boUpdateSpriteText )
 			return;
-		/*
-				if ( Array.isArray( group ) )
-					group.forEach( function ( spriteItem ) {
-		
-						spriteItem.update( options );
-		
-					} );
-				else if ( ( group instanceof THREE.Group ) || ( group instanceof THREE.Scene ) ){
-		
-					updateSpriteTextGroup( group );
-		
-				} else if ( group instanceof THREE.Sprite )
-					group.userData.update( options );
-				else group.update( options );
-		*/
+/*
+		if ( Array.isArray( group ) )
+			group.forEach( function ( spriteItem ) {
+
+				spriteItem.update( options );
+
+			} );
+		else if ( ( group instanceof THREE.Group ) || ( group instanceof THREE.Scene ) ){
+
+			updateSpriteTextGroup( group );
+
+		} else if ( group instanceof THREE.Sprite )
+			group.userData.update( options );
+		else group.update( options );
+*/
 		SpriteText.updateSpriteTextGroup( group );
 		if ( group.userData.update )
 			group.userData.update();// options );
@@ -283,25 +282,25 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 	const fSpriteText = guiParams.parentFolder.addFolder( guiParams.spriteFolder );
 	dat.folderNameAndTitle( fSpriteText, guiParams.spriteFolder, lang.spriteTextTitle );
 
-	/*
-		//Sprite text
-		if ( options.hasOwnProperty( 'text' ) ) {
-	
-			optionsCookie['text'] = options.text;
-			dat.controllerNameAndTitle(
-				fSpriteText.add( options, 'text' ).onChange( function ( value ) {
-	
-					updateSpriteText();
-	
-				} ), lang.text, lang.textTitle );
-	
-		}
-	*/
+/*
+	//Sprite text
+	if ( options.hasOwnProperty( 'text' ) ) {
+
+		optionsCookie['text'] = options.text;
+		dat.controllerNameAndTitle(
+			fSpriteText.add( options, 'text' ).onChange( function ( value ) {
+
+				updateSpriteText();
+
+			} ), lang.text, lang.textTitle );
+
+	}
+*/
 	//Sprite text height
 	const textHeight = 'textHeight';
 	if ( options.hasOwnProperty( textHeight ) && ( options[textHeight] !== undefined ) ) {
 
-		ScaleControllers( fSpriteText, options, textHeight, function () { updateSpriteText(); }, {
+		ScaleControllers( fSpriteText, options, textHeight, function() { updateSpriteText(); }, {
 
 			text: lang.textHeight, textTitle: lang.textHeightTitle,
 			getLanguageCode: guiParams.getLanguageCode,
@@ -567,7 +566,9 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 	dat.controllerNameAndTitle( fSpriteText.add( defaultParams, 'defaultF' ), lang.defaultButton, lang.defaultTitle );
 
 	updateSpriteText( true );
-
+	
 	return fSpriteText;
 
 };
+
+export { SpriteTextGui };

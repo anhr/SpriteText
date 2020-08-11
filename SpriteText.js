@@ -18,6 +18,7 @@
 //import * as THREE from '../../three.js/dev/build/three.module.js';//https://github.com/anhr/three.js;
 //import { THREE } from '../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
 //import * as THREE from 'https://raw.githack.com/anhr/three.js/dev/build/three.module.js';
+var THREE;
 
 /**
  * A sprite based text component.
@@ -60,7 +61,6 @@
  * @param {number} [options.rect.borderRadius] border corners radius. Default is 0 - no radius.
  * @see Thanks to {@link https://github.com/vasturiano/three-spritetext|three-spritetext}
  * @example
- *
 <script>
 
 	import * as THREE from 'https://threejs.org/build/three.module.js';
@@ -78,9 +78,8 @@
 	scene.add( new SpriteText( 'Sprite text', new THREE.Vector3( -10, -15, 2 ), { textHeight: 3 } ) );
 
 </script>
-*
  */
-var SpriteText = function ( text, position, options ) {
+export function SpriteText( text, position, options ) {
 
 	if ( typeof THREE === "undefined" ) {
 
@@ -270,7 +269,6 @@ var SpriteText = function ( text, position, options ) {
 
 };
 
-var THREE;
 /**
  * set THREE
  * @function SpriteText.
@@ -376,4 +374,4 @@ SpriteText.updateSpriteTextGroup = function( group ) {
 
 }
 
-export { SpriteText };
+//export { SpriteText };

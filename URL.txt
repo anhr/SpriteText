@@ -13,19 +13,8 @@ Generating a website:
 
 	//remove all files from "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc\out"
 
-	jsdoc "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\SpriteText.js"
+	jsdoc -R "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\SpriteText.md" "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\SpriteText.js" "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\SpriteTextGui.js"
 
 	//copy all files from "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc\out"
-	//to "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\jsdoc\SpriteText"
-	/////////////////////////////////////////////////////////////
-
-	/////////////////////////////////////////////////////////////
-	//SpriteTextGui doc
-
-	//remove all files from "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc\out"
-
-	jsdoc "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\SpriteTextGui.js"
-
-	//copy all files from "D:\My documents\MyProjects\webgl\three.js\GitHub\jsdoc\out"
-	//to "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\jsdoc\SpriteTextGui"
+	//to "D:\My documents\MyProjects\webgl\three.js\GitHub\SpriteText\master\jsdoc"
 	/////////////////////////////////////////////////////////////

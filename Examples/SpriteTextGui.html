@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>sprite text gui. three.js webgl</title>
@@ -28,11 +28,11 @@
 		//import { dat } from '../../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
 		import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
 
-		//import { SpriteText } from '../SpriteText.js';
-		import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
+		import { SpriteText } from '../SpriteText.js';
+		//import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
 
-		//import { SpriteTextGui } from '../SpriteTextGui.js';
-		import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
+		import { SpriteTextGui } from '../SpriteTextGui.js';
+		//import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
 
 		//import { OrbitControls } from '../../../three.js/dev/examples/jsm/controls/OrbitControls.js';//https://github.com/anhr/three.js
 		import { OrbitControls } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/controls/OrbitControls.js';
@@ -248,34 +248,16 @@
 				if ( typeof SpriteTextGui !== "undefined" ) {
 
 					//Settings for all SpriteText added to scene and child groups
-					fSpriteTextAll = SpriteTextGui( gui, scene, {
+					fSpriteTextAll = SpriteTextGui( SpriteText, gui, scene, {
 
 						getLanguageCode: getLanguageCode,
 						settings: { zoomMultiplier: 1.5, },
 						cookie: cookie,
-						/*					
-											options: {
-
-												//rotation: 0,
-												//textHeight: 0.1 * scale,//0.05,
-												textHeight: 0.1,
-
-												//Camera frustum vertical field of view, from bottom to top of view, in degrees. Default is 50.
-												//Вертикальное поле обзора камеры, снизу вверх, в градусах.
-												//Если добавить эту настройку, то видимый размер текста не будет зависить от изменения camera.fov.
-												//Тогда textHeight будет вычисляться как options.fov * textHeight / 50
-												//Если не определить поле textHeight (см. выше) то textHeight = 0.04,
-												fov: camera.fov,
-
-												//sizeAttenuation: false,//true,//Whether the size of the sprite is attenuated by the camera depth. (Perspective camera only.) Default is false.
-
-											}
-						*/
 
 					} );
 
 					//Settings for all SpriteText added to groupLevel2 and child groups
-					fSpriteTextGroupLevel2 = SpriteTextGui( gui, groupLevel2, {
+					fSpriteTextGroupLevel2 = SpriteTextGui( SpriteText, gui, groupLevel2, {
 
 						spriteFolder: 'groupLevel2 sprites',
 						getLanguageCode: getLanguageCode,
@@ -302,7 +284,7 @@
 
 					} );
 
-					SpriteTextGui( gui, spriteTextIndividualOptions, {
+					SpriteTextGui( SpriteText, gui, spriteTextIndividualOptions, {
 
 						spriteFolder: 'Sprite with individual options',
 						getLanguageCode: getLanguageCode,
