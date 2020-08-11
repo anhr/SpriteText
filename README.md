@@ -11,7 +11,7 @@ Uses in my projects:
 
 ## Tutorial
 
-See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/SpriteText/index.html).
+See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/index.html).
 
 ## On the following browsers have been successfully tested:
 
