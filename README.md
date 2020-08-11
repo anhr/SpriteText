@@ -21,10 +21,20 @@ import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/Sprit
 or
 
 * Create a folder on your localhost named as [folderName].
-* Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
+* Add your veb page into [folderName]. See [example](https://raw.githack.com/anhr/SpriteText/master/Examples/SpriteText.html) web page.
+* import [three.js](https://github.com/anhr/three.js)
+```
+import * as THREE from 'https://threejs.org/build/three.module.js';
+```
+or
+```
+import { THREE } from 'https://raw.githack.com/anhr/commonNodeJS/master/three.js';
+```
+or download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
+```
+import * as THREE from './three.js/dev/build/three.module.js';
+```
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
-* Open http://localhost/[folderName]/SpriteText/master/Examples/SpriteText.html for testing of your downloads.
-
 ```
 import { SpriteText } from './SpriteText.js';
 ```
@@ -33,26 +43,63 @@ Now you can use SpriteText in your javascript code. See [SpriteText API](https:/
 
 ### SpriteTextGui
 
-Use SpriteTextGui for manual change settings of the SpriteText.
+Add SpriteTextGui into [dat.gui](https://github.com/anhr/dat.gui) for manual change settings of the SpriteText.
 
+Import dat.gui.
+```
+import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
+```
+or download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
+```
+import { dat } from './commonNodeJS/master/dat/dat.module.js';
+```
+Import SpriteTextGui.
 ```
 import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteTextGui.js';
 ```
 or
 
 * Use folder on your localhost named as [folderName]. See [SpriteText](https://github.com/anhr/SpriteText#spritetext-1) above.
-* Download [three.js](https://github.com/anhr/three.js) repository into your "[folderName]\three.js\dev" folder.
-* Download [dat.gui](https://github.com/anhr/dat.gui) repository into your "[folderName]\dat.gui\CustomController" folder.
-* Download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
-* Download [cookieNodeJS](https://github.com/anhr/cookieNodeJS) repository into your "[folderName]\cookieNodeJS\master" folder.
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
-* Open http://localhost/[folderName]/SpriteText/master/Examples/SpriteTextGui.html for testing of your downloads.
 
 ```
 import { SpriteTextGui } from './SpriteTextGui.js';
 ```
 
 Now you can use SpriteTextGui in your javascript code. See [SpriteTextGui API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/SpriteTextGui/index.html) for details.
+```
+const gui =  new dat.GUI();
+const folder = SpriteTextGui( gui, scene, {
+
+	//getLanguageCode: getLanguageCode,
+	//cookie: cookie,
+
+} );
+```
+If you want to localize the gui, please uncomment
+```
+getLanguageCode: getLanguageCode,
+```
+line above and import getLanguageCode.
+```
+import { getLanguageCode } from 'https://raw.githack.com/anhr/commonNodeJS/master/lang.js';
+```
+or download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into your "[folderName]\commonNodeJS\master" folder.
+```
+import { getLanguageCode } from './commonNodeJS/master/lang.js';
+```
+If you want save a custom StereoEffect settings to the cookie, please uncomment
+```
+cookie: cookie,
+```
+line in the stereoEffect.gui(...) above and import cookie.
+```
+import cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
+```
+or download [cookieNodeJS](https://github.com/anhr/cookieNodeJS) repository into your "[folderName]\cookieNodeJS\master" folder.
+```
+import cookie from './cookieNodeJS/master/cookie.js';
+```
 
 ### group.userData.optionsSpriteText - common options for the group of the SpriteText
 You can set options for all SpriteText from the [Group](https://threejs.org/docs/index.html#api/en/objects/Group) or [Scene](https://threejs.org/docs/index.html#api/en/scenes/Scene) and all child groups.
