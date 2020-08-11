@@ -9,9 +9,7 @@ Uses in my projects:
  * [AxesHelper](https://github.com/anhr/AxesHelper)
  * [myThreejs](https://github.com/anhr/myThreejs)
 
-## Tutorial
-
-See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/index.html).
+[SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/index.html).
 
 ## On the following browsers have been successfully tested:
 
