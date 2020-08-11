@@ -72,7 +72,7 @@ import { SpriteTextGui } from './SpriteTextGui.js';
 Now you can use SpriteTextGui in your javascript code.
 ```
 const gui =  new dat.GUI();
-const folder = SpriteTextGui( gui, scene, {
+const folder = SpriteTextGui( SpriteText, gui, scene, {
 
 	//getLanguageCode: getLanguageCode,
 	//cookie: cookie,
