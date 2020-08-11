@@ -91,7 +91,7 @@ or download [commonNodeJS](https://github.com/anhr/commonNodeJS) repository into
 ```
 import { getLanguageCode } from './commonNodeJS/master/lang.js';
 ```
-If you want save a custom StereoEffect settings to the cookie, please uncomment
+If you want save a custom SpriteText settings to the cookie, please uncomment
 ```
 cookie: cookie,
 ```
