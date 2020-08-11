@@ -32,7 +32,16 @@ import * as THREE from './three.js/dev/build/three.module.js';
 import { SpriteText } from './SpriteText.js';
 ```
 
-Now you can use SpriteText in your javascript code. See [SpriteText API](https://raw.githack.com/anhr/SpriteText/master/jsdoc/SpriteText/index.html) for details.
+Now you can use SpriteText in your javascript code.
+```
+scene.add( new SpriteText( 'Sprite text', new THREE.Vector3( 10, 2, 2 ), {
+
+	fontColor: 'rgba(0, 255, 0, 1)', //green
+	textHeight: 30,
+	fontFace: 'Arial',
+
+} ) );
+```
 
 ### SpriteTextGui
 
