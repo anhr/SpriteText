@@ -6,7 +6,7 @@ A [sprite](https://threejs.org/docs/index.html#api/en/objects/Sprite) based text
 
 ### SpriteText
 
-The easiest way to use SpriteText in your code is import SpriteText from SpriteText.js file in your JavaScript module. [Example](https://raw.githack.com/anhr/SpriteText/master/Examples/SpriteText.html).
+The easiest way to use SpriteText in your code is import SpriteText from SpriteText.js file in your JavaScript module. [Example](https://github.com/anhr/SpriteText/blob/master/Examples/SpriteText.html).
 
 ```
 import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
@@ -29,18 +29,31 @@ import * as THREE from './three.js/dev/build/three.module.js';
 ```
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
 ```
-import { SpriteText } from './SpriteText.js';
+import { SpriteText } from './SpriteText/master/SpriteText.js';
+```
+
+First, set THREE for SpriteText.
+```
+SpriteText.setTHREE( THREE );
 ```
 
 Now you can use SpriteText in your javascript code.
+
+Add SpriteText with default settings into center of the scene.
 ```
-scene.add( new SpriteText( 'Sprite text', new THREE.Vector3( 10, 2, 2 ), {
+scene.add( new SpriteText( 'Default sprite') );
+```
+Add SpriteText with green font color , textHeight is 0.2, fontFace is 'Times' into ( -5, 0, 0 ) point of the scene.
+```
+const spriteText = new SpriteText( 'Sprite text', new THREE.Vector3( -5, 0, 0 ), {
 
 	fontColor: 'rgba(0, 255, 0, 1)', //green
-	textHeight: 30,
-	fontFace: 'Arial',
+	textHeight: 0.2,
+	fov: camera.fov,
+	fontFace: 'Times',
 
-} ) );
+} );
+scene.add( spriteText );
 ```
 
 ### SpriteTextGui
@@ -66,13 +79,13 @@ or
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
 
 ```
-import { SpriteTextGui } from './SpriteTextGui.js';
+import { SpriteTextGui } from './SpriteText/master/SpriteTextGui.js';
 ```
 
 Now you can use SpriteTextGui in your javascript code.
 ```
 const gui =  new dat.GUI();
-const folder = SpriteTextGui( SpriteText, gui, scene, {
+const folder = SpriteTextGui( SpriteText, gui, spriteText, {
 
 	//getLanguageCode: getLanguageCode,
 	//cookie: cookie,
