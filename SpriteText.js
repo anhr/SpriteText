@@ -1,7 +1,7 @@
 /**
  * @module SpriteText.
  * @description A sprite based text component. Text that always faces towards the camera.
- * @see {@link https://threejs.org/docs/index.html#api/en/objects/Sprite|three.js Sprite}
+ * @see {@link https://threejs.org/docs/index.html#api/en/objects/Sprite|THREE.Sprite}
  * 
  * @author Andrej Hristoliubov. {@link https://anhr.github.io/AboutMe/|AboutMe}
  *
