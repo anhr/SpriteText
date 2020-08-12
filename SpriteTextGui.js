@@ -37,7 +37,8 @@ import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
  * Adds SpriteText settings folder into dat.gui.
  * @param {SpriteText} SpriteText A sprite based text component module.
  * @param {GUI} gui see {@link https://github.com/anhr/dat.gui|dat.gui} for details
- * @param {THREE.Group|THREE.Scene} group group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect
+ * @param {THREE.Group|THREE.Scene|THREE.Sprite} group group or scene of SpriteText and of all child groups of SpriteText for which these settings will have an effect.
+ * Or Sprite returned from {@link https://raw.githack.com/anhr/SpriteText/master/jsdoc/module-SpriteText..html|new SpriteText(...)}.
  * @param {object} [guiParams] Followed parameters is allowed. Default is no parameters
  * @param {Function} [guiParams.getLanguageCode] Your custom getLanguageCode() function.
  * returns the "primary language" subtag of the language version of the browser.
