@@ -129,6 +129,8 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 		textHeightTitle: 'Text Height.',
 
 		fontFace: 'Font Face',
+
+		fontFaces: 'Font Faces',
 		fontFaceTitle: 'Choose text font.',
 
 		bold: 'Bold',
@@ -180,6 +182,8 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 			lang.textHeightTitle = 'Высота текста.';
 
 			lang.fontFace = 'Имя шрифта';
+
+			lang.fontFaces = 'Имена шрифтов';
 			lang.fontFaceTitle = 'Выберите шрифта текста.';
 
 			lang.bold = 'Жирный';
@@ -311,6 +315,18 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 
 	}
 
+	//font face
+	if ( options.fontFace !== undefined ) {
+
+		dat.controllerNameAndTitle(
+			fSpriteText.add( options, 'fontFace' ).onChange( function ( value ) {
+
+				updateSpriteText();
+
+			} ), lang.fontFace );
+
+	}
+
 	//font faces
 	if ( options.fontFaces !== undefined ) {
 
@@ -319,7 +335,7 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 
 				updateSpriteText();
 
-			} ), lang.fontFace, lang.fontFaceTitle );
+			} ), lang.fontFaces, lang.fontFaceTitle );
 
 	}
 
