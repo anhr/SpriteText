@@ -264,6 +264,7 @@ export function SpriteText( text, position, options ) {
 	if ( options.group )
 		options.group.add( sprite );
 
+	sprite.userData.optionsSpriteText = options;
 
 	return sprite;
 
