@@ -315,7 +315,7 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 
 	}
 
-	//font face
+	//font  face
 	if ( options.fontFace !== undefined ) {
 
 		dat.controllerNameAndTitle(
