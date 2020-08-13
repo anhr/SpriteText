@@ -284,7 +284,13 @@ SpriteText.setTHREE = function ( _THREE ) { THREE = _THREE; }
  * getTHREE
  * @returns {@link https://github.com/anhr/three.js|THREE}
  */
-SpriteText.getTHREE = function () { return THREE; }
+SpriteText.getTHREE = function () {
+
+	if ( !THREE )
+		console.error( 'Call SpriteText.setTHREE( THREE ) first.');
+	return THREE;
+
+}
 
 /**
  * Returns {@link https://threejs.org/docs/index.html#api/en/objects/Sprite.center|center}
