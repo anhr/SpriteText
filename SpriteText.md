@@ -6,7 +6,8 @@ A [sprite](https://threejs.org/docs/index.html#api/en/objects/Sprite) based text
 
 ### SpriteText
 
-The easiest way to use SpriteText in your code is import SpriteText from SpriteText.js file in your JavaScript module. [Example](https://github.com/anhr/SpriteText/blob/master/Examples/SpriteText.html).
+The easiest way to use SpriteText in your code is import SpriteText from SpriteText.js file in your JavaScript module.
+[Example](https://github.com/anhr/SpriteText/blob/master/Examples/SpriteText.html).
 
 ```
 import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
@@ -75,7 +76,7 @@ import { SpriteTextGui } from 'https://raw.githack.com/anhr/SpriteText/master/Sp
 ```
 or
 
-* Use folder on your localhost named as [folderName]. See [SpriteText](https://github.com/anhr/SpriteText#spritetext-1) above.
+* Use folder on your localhost named as [folderName]. See SpriteText above.
 * Download [SpriteText](https://github.com/anhr/SpriteText) repository into your "[folderName]\SpriteText\master" folder.
 
 ```
