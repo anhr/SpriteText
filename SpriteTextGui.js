@@ -114,8 +114,14 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 	}
 */	
 	guiParams = guiParams || {};
-	const options = guiParams.options || group.userData.optionsSpriteText || {},
-		optionsDefault = JSON.parse( JSON.stringify( options ) );
+	const options = guiParams.options || group.userData.optionsSpriteText || {};
+	if ( THREE.Color.NAMES[options.fontColor] ) {
+
+		const color = new THREE.Color( options.fontColor );
+		options.fontColor = 'rgba(' + color.r + ',' + color.g + ',' + color.b + ',1)'
+
+	}
+	const optionsDefault = JSON.parse( JSON.stringify( options ) );
 	Object.freeze( optionsDefault );
 
 	//Localization
