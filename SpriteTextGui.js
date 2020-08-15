@@ -118,7 +118,7 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 	if ( THREE.Color.NAMES[options.fontColor] ) {
 
 		const color = new THREE.Color( options.fontColor );
-		options.fontColor = 'rgba(' + color.r + ',' + color.g + ',' + color.b + ',1)'
+		options.fontColor = 'rgba(' + color.r * 255 + ',' + color.g * 255 + ',' + color.b * 255 + ',1)'
 
 	}
 	const optionsDefault = JSON.parse( JSON.stringify( options ) );
