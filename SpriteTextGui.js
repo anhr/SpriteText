@@ -41,11 +41,13 @@ import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
  * Or Sprite returned from {@link https://raw.githack.com/anhr/SpriteText/master/jsdoc/module-SpriteText..html|new SpriteText(...)}.
  * @param {object} [guiParams] Followed parameters is allowed. Default is no parameters
  * @param {Function} [guiParams.getLanguageCode] Your custom getLanguageCode() function.
+ * <pre>
  * returns the "primary language" subtag of the language version of the browser.
  * Examples: "en" - English language, "ru" Russian.
  * See the {@link https://tools.ietf.org/html/rfc4646#section-2.1|rfc4646 2.1 Syntax} for details.
  * Default returns the 'en' is English language.
  * You can import { getLanguageCode } from '../../commonNodeJS/master/lang.js';
+ * </pre>
  * @param {object} [guiParams.lang] Object with localized language values
  * @example Using of guiParams.lang:
 guiParams = {
@@ -105,14 +107,7 @@ guiParams = {
 export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 
 	const THREE = SpriteText.getTHREE();
-/*	
-	if ( !THREE ) {
 
-		console.error( 'SpriteTextGui: THREE = ' + THREE );
-		return;
-
-	}
-*/	
 	guiParams = guiParams || {};
 	const options = guiParams.options || group.userData.optionsSpriteText || {};
 	if ( THREE.Color.NAMES[options.fontColor] ) {
@@ -262,21 +257,6 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 
 		if ( !boUpdateSpriteText )
 			return;
-		/*
-				if ( Array.isArray( group ) )
-					group.forEach( function ( spriteItem ) {
-		
-						spriteItem.update( options );
-		
-					} );
-				else if ( ( group instanceof THREE.Group ) || ( group instanceof THREE.Scene ) ){
-		
-					updateSpriteTextGroup( group );
-		
-				} else if ( group instanceof THREE.Sprite )
-					group.userData.update( options );
-				else group.update( options );
-		*/
 		SpriteText.updateSpriteTextGroup( group );
 		if ( group.userData.update )
 			group.userData.update();// options );
@@ -296,20 +276,6 @@ export function SpriteTextGui( SpriteText, gui, group, guiParams ) {
 	const fSpriteText = guiParams.parentFolder.addFolder( guiParams.spriteFolder );
 	dat.folderNameAndTitle( fSpriteText, guiParams.spriteFolder, lang.spriteTextTitle );
 
-	/*
-		//Sprite text
-		if ( options.hasOwnProperty( 'text' ) ) {
-	
-			optionsCookie['text'] = options.text;
-			dat.controllerNameAndTitle(
-				fSpriteText.add( options, 'text' ).onChange( function ( value ) {
-	
-					updateSpriteText();
-	
-				} ), lang.text, lang.textTitle );
-	
-		}
-	*/
 	//Sprite text height
 	const textHeight = 'textHeight';
 	if ( options.hasOwnProperty( textHeight ) && ( options[textHeight] !== undefined ) ) {

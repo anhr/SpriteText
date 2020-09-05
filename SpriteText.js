@@ -46,16 +46,20 @@ var THREE;
  * @param {string} [options.fontProperties] Other font properties. The font property uses the same syntax as the CSS font property.
  * 	Default is empty string. Example "900", "oblique lighter".
  * @param {THREE.Vector2} [options.center] The text's anchor point.
+ * <pre>
  * See {@link https://threejs.org/docs/index.html#api/en/objects/Sprite.center|Sprite.center}
  * 	A value of (0.5, 0.5) corresponds to the midpoint of the text.
  * 	A value of (0, 0) corresponds to the left lower corner of the text.
  * 	A value of (0, 1) corresponds to the left upper corner of the text.
  * 	Default is (0, 1).
+ * </pre>
  * @param {object} [options.rect] rectangle around the text.
  * @param {boolean} [options.rect.displayRect] true - the rectangle around the text is visible. Default is false.
  * @param {string} [options.rect.backgroundColor] background color. RGBA object or RGB object or HEX value
+ * <pre>
  * 	Default is 'rgba(0, 0, 0, 0)' - black transparent.
  * 	Examples 'rgba(0, 0, 255, 0.5)', '#00FF00'.
+ * </pre>
  * @param {string} [options.rect.borderColor] border color. RGBA object or RGB object or HEX value. Default is same as options.fontColor 'rgba(255, 255, 255, 1)' - white.
  * @param {number} [options.rect.borderThickness] border thickness. Default is 0 - invisible border.
  * @param {number} [options.rect.borderRadius] border corners radius. Default is 0 - no radius.
@@ -89,11 +93,6 @@ export function SpriteText( text, position, options ) {
 	}
 	position = position || new THREE.Vector3( 0, 0, 0 );
 	options = options || {};
-/*
-	if ( options.group )
-		updateOptions( options.group, options );
-*/		
-//else console.warn('options.group = ' + options.group );
 
 	const sprite = new THREE.Sprite( new THREE.SpriteMaterial( {
 
@@ -109,26 +108,11 @@ export function SpriteText( text, position, options ) {
 
 	sprite.userData.update = function ( /*optionsUpdate*/ ) {
 
-//		optionsUpdate = optionsUpdate || {};
 		const optionsUpdate = {};
 		if ( sprite.parent )
 			updateOptions( sprite.parent, optionsUpdate );
 		else if ( options.group )
 			updateOptions( options.group, optionsUpdate );
-/*
-		var textHeight = optionsUpdate.textHeight || options.textHeight || 0.04;
-		const fov = optionsUpdate.fov || options.fov,
-			sizeAttenuation = optionsUpdate.sizeAttenuation || options.sizeAttenuation || false,
-			rotation = optionsUpdate.rotation || options.rotation || 0,
-			fontFace = optionsUpdate.fontFace || options.fontFace || 'Arial',
-			bold = optionsUpdate.bold || options.bold || false,
-			italic = optionsUpdate.italic || options.italic || false,
-			fontProperties = optionsUpdate.fontProperties || options.fontProperties || '',
-			rect = optionsUpdate.rect || options.rect || {},
-			color = 'rgba(255, 255, 255, 1)',
-			fontColor = optionsUpdate.fontColor || options.fontColor || color,
-			center = SpriteText.getCenter( optionsUpdate.center || options.center );
-*/
 		var textHeight = options.textHeight || optionsUpdate.textHeight || 0.04;
 		const fov = options.fov || optionsUpdate.fov,
 			sizeAttenuation = options.sizeAttenuation || optionsUpdate.sizeAttenuation || false,
@@ -245,12 +229,6 @@ export function SpriteText( text, position, options ) {
 		sprite.material.needsUpdate = true;
 
 	};
-/*	
-	const optionsGroup = {};
-	if ( options.group )
-		updateOptions( options.group, optionsGroup );
-	sprite.userData.update( optionsGroup );
-*/	
 	sprite.userData.update();
 
 	sprite.userData.updateText = function ( _text ) {
@@ -365,12 +343,6 @@ SpriteText.updateSpriteTextGroup = function( group ) {
 
 		if ( spriteItem instanceof THREE.Sprite ) {
 
-/*
-			var options = {};
-			updateOptions( group, options );
-			if ( spriteItem.userData.update !== undefined )
-				spriteItem.userData.update( options );
-*/				
 			if ( spriteItem.userData.update !== undefined )
 				spriteItem.userData.update();
 
