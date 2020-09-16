@@ -28,7 +28,8 @@ import { ScaleControllers } from 'https://raw.githack.com/anhr/commonNodeJS/mast
 //import ScaleController from '../../commonNodeJS/master/ScaleController.js';
 
 //import Cookie from '../../cookieNodeJS/master/cookie.js';//https://github.com/anhr/cookieNodeJS
-import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
+//import Cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
+import Cookie from 'https://raw.githack.com/anhr/commonNodeJS/master/cookieNodeJS/cookie.js';
 
 //import { SpriteText } from './SpriteText.js';
 //import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
