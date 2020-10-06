@@ -25,8 +25,8 @@
 		//import { THREE } from '../../../commonNodeJS/master/three.js';//https://github.com/anhr/commonNodeJS
 		//import { THREE } from 'https://raw.githack.com/anhr/commonNodeJS/master/three.js';
 
-		//import { dat } from '../../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
-		import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
+		import { dat } from '../../../commonNodeJS/master/dat/dat.module.js';//https://github.com/anhr/commonNodeJS
+		//import { dat } from 'https://raw.githack.com/anhr/commonNodeJS/master/dat/dat.module.js';
 
 		import { SpriteText } from '../SpriteText.js';
 		//import { SpriteText } from 'https://raw.githack.com/anhr/SpriteText/master/SpriteText.js';
@@ -43,14 +43,14 @@
 		import { ConvexBufferGeometry } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/geometries/ConvexGeometry.js';
 		//import { ConvexBufferGeometry } from 'https://threejs.org/examples/jsm/geometries/ConvexGeometry.js';
 
-		//import { StereoEffect, spatialMultiplexsIndexs } from '../../../commonNodeJS/master/StereoEffect.js';//https://github.com/anhr/commonNodeJS
-		import { StereoEffect, spatialMultiplexsIndexs } from 'https://raw.githack.com/anhr/commonNodeJS/master/StereoEffect/StereoEffect.js';
+		import StereoEffect from '../../../commonNodeJS/master/StereoEffect/StereoEffect.js';//https://github.com/anhr/commonNodeJS
+		//import StereoEffect from 'https://raw.githack.com/anhr/commonNodeJS/master/StereoEffect/StereoEffect.js';
 
 		//import { WEBGL } from '../../../three.js/dev/examples/jsm/WebGL.js';//https://github.com/anhr/three.js
 		import { WEBGL } from 'https://raw.githack.com/anhr/three.js/dev/examples/jsm/WebGL.js';
 		//import { WEBGL } from 'https://threejs.org/examples/jsm/WebGL.js';
 
-		import cookie from '../../../commonNodeJS/master/cookieNodeJS/cookie.js';//https://github.com/anhr/cookieNodeJS
+		import cookie from '../../../commonNodeJS/master/cookieNodeJS/cookie.js';//https://github.com/anhr/commonNodeJS/tree/master/cookieNodeJS
 		//import cookie from 'https://raw.githack.com/anhr/cookieNodeJS/master/cookie.js';
 		//import cookie from 'https://raw.githack.com/anhr/commonNodeJS/master/cookieNodeJS/cookie.js';
 
@@ -176,7 +176,7 @@
 
 				effect = new StereoEffect( THREE, renderer, {
 
-					spatialMultiplex: spatialMultiplexsIndexs.Mono,
+					spatialMultiplex: StereoEffect.spatialMultiplexsIndexs.Mono,
 					far: camera.far,
 					camera: camera,
 					cookie: cookie,

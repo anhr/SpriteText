@@ -24,7 +24,7 @@ var THREE;
  * A sprite based text component.
  * @param {string|number} text The text to be displayed on the sprite. You can include a multiline text separated by "\r\n".
  * @param {THREE.Vector3} [position] Position of the text. Default is new THREE.Vector3(0,0,0).
- * @param {object} [options] followed options is available
+ * @param {object} [options] the following options are available
  * @param {THREE.Group} [options.group] Parent group of the SpriteText with common options.
  * See {@link https://github.com/anhr/SpriteText#groupuserdataoptionsspritetext---common-options-for-the-group-of-the-spritetext|common options for the group of the SpriteText}.
  * Default is undefined.
