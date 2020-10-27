@@ -61,7 +61,7 @@
 			scene = new THREE.Scene();
 
 			renderer = new THREE.WebGLRenderer( { antialias: true } );
-			renderer.setPixelRatio( window.devicePixelRatio );
+//			renderer.setPixelRatio( window.devicePixelRatio );
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
@@ -158,21 +158,7 @@
 			} );
 
 			//
-/*			
-			if ( typeof StereoEffect !== "undefined" ) {
 
-				effect = new StereoEffect( renderer, {
-
-					spatialMultiplex: spatialMultiplexsIndexs.Mono,
-					far: camera.far,
-					camera: camera,
-					cookie: cookie,
-
-				} );
-				effect.setSize( window.innerWidth, window.innerHeight );
-			
-			}
-*/
 			const groupLevel2 = new THREE.Group();
 			group.add( groupLevel2 );
 
