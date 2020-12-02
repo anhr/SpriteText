@@ -1,5 +1,3 @@
-Attention!!! This repository is deprecated! Plase go to [commonNodeJS/SpriteText](https://github.com/anhr/commonNodeJS/tree/master/SpriteText).
-
 # SpriteText.
 
 A [sprite](https://threejs.org/docs/index.html#api/en/objects/Sprite) based text component. SpriteText is a text that always faces towards the camera.
